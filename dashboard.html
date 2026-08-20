@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salesman Productivity Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2><span class="logo-dot"></span>Bill Productivity</h2>
+        <a href="#" id="navDashboard" class="active" onclick="showView('dashboard'); return false;">📊 <span>Dashboard</span></a>
+        <a href="#" id="navSalesman" onclick="showView('salesman'); return false;">👤 <span>Salesman</span></a>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <div class="main">
+
+        <!-- ===================================== -->
+        <!-- DASHBOARD VIEW -->
+        <!-- ===================================== -->
+        <div id="dashboardView" class="view active">
+
+            <div class="topbar">
+                <div>
+                    <h1>Salesman Productivity</h1>
+                    <p>Jhenaidah Territory — Overview</p>
+                </div>
+                <div class="user">👤 Nafi</div>
+            </div>
+
+            <!-- Excel Upload -->
+            <div class="upload-box">
+                <div>
+                    <h3>Upload Excel File</h3>
+                    <p>Select your Salesman Productivity Excel file</p>
+                </div>
+                <input type="file" id="excelFile" accept=".xlsx,.xls">
+                <button id="uploadBtn">Upload Excel</button>
+            </div>
+
+            <!-- KPI Cards -->
+            <div class="cards">
+                <div class="card accent-indigo">
+                    <span>Total Salesman</span>
+                    <strong id="totalSalesman">0</strong>
+                </div>
+                <div class="card accent-teal">
+                    <span>Total Outlets</span>
+                    <strong id="totalOutlets">0</strong>
+                </div>
+                <div class="card accent-amber">
+                    <span>Productive Call</span>
+                    <strong id="productiveCall">0</strong>
+                </div>
+                <div class="card accent-rose">
+                    <span>Average BP%</span>
+                    <strong id="averageBP">0%</strong>
+                </div>
+            </div>
+
+            <!-- Town-wise Report -->
+            <div class="panel">
+                <div class="panel-head">
+                    <h2>Town-wise Report</h2>
+                    <p class="panel-sub">প্রতিটি Town-এর সামগ্রিক পারফরম্যান্স</p>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Town</th>
+                                <th>Salesman</th>
+                                <th>Total Outlets</th>
+                                <th>Productive Call</th>
+                                <th>Avg BP%</th>
+                            </tr>
+                        </thead>
+                        <tbody id="townTable"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Top / Low Performers -->
+            <div class="perf-columns">
+
+                <div class="panel">
+                    <div class="panel-head">
+                        <h2 class="top-title">🏆 Top Performers</h2>
+                        <p class="panel-sub">BP% অনুযায়ী সেরা</p>
+                    </div>
+                    <div id="topPerformerList" class="salesman-grid"></div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-head">
+                        <h2 class="low-title">⚠️ Low Performers</h2>
+                        <p class="panel-sub">BP% অনুযায়ী সবচেয়ে কম</p>
+                    </div>
+                    <div id="lowPerformerList" class="salesman-grid"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ===================================== -->
+        <!-- SALESMAN VIEW -->
+        <!-- ===================================== -->
+        <div id="salesmanView" class="view">
+
+            <div class="topbar">
+                <div>
+                    <h1>Salesman Report</h1>
+                    <p>সব Salesman-এর তালিকা — বিস্তারিত দেখতে সারিতে ক্লিক করুন</p>
+                </div>
+                <div class="user">👤 Nafi</div>
+            </div>
+
+            <!-- List + filters -->
+            <div id="salesmanListWrap">
+
+                <div class="filter-bar">
+                    <div class="filter-item">
+                        <label>Town</label>
+                        <select id="salesmanTownFilter">
+                            <option value="All">All Town</option>
+                        </select>
+                    </div>
+                    <div class="filter-item grow">
+                        <label>Search</label>
+                        <input type="text" id="salesmanSearchBox" placeholder="নাম বা কোড দিয়ে খুঁজুন...">
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Town</th>
+                                    <th>Code</th>
+                                    <th>Salesman</th>
+                                    <th>Scheduled</th>
+                                    <th>Non Scheduled</th>
+                                    <th>S+NS</th>
+                                    <th>Productive Call</th>
+                                    <th>BP%</th>
+                                </tr>
+                            </thead>
+                            <tbody id="salesmanTable"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Salesman Profile (hidden by default) -->
+            <div id="salesmanProfile" class="profile-box" style="display:none;">
+                <button class="back-btn" onclick="closeSalesmanProfile()">← Back to list</button>
+
+                <div class="profile-header">
+                    <div class="profile-avatar">👤</div>
+                    <div>
+                        <h2 id="profileName">-</h2>
+                        <p id="profileMeta">-</p>
+                    </div>
+                </div>
+
+                <div class="cards">
+                    <div class="card accent-indigo">
+                        <span>Scheduled</span>
+                        <strong id="profileScheduled">0</strong>
+                    </div>
+                    <div class="card accent-teal">
+                        <span>Non Scheduled</span>
+                        <strong id="profileNonScheduled">0</strong>
+                    </div>
+                    <div class="card accent-amber">
+                        <span>Total Outlets (S+NS)</span>
+                        <strong id="profileTotalOutlets">0</strong>
+                    </div>
+                    <div class="card accent-rose">
+                        <span>Productive Call</span>
+                        <strong id="profileProductive">0</strong>
+                    </div>
+                    <div class="card accent-violet">
+                        <span>BP%</span>
+                        <strong id="profileBP">0%</strong>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Excel Reader -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
