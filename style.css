@@ -1,179 +1,229 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root{
+  --u-blue-deep:#00205b;
+  --u-blue:#0033a0;
+  --u-blue-bright:#1f6fdb;
+  --u-teal:#00a19a;
+  --u-gold:#ffc72c;
+  --ink:#0f1b3d;
+  --muted:#8891ad;
 }
 
-body {
-    min-height: 100vh;
+*{box-sizing:border-box;}
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-family: Arial, sans-serif;
-
-    background: linear-gradient(
-        135deg,
-        #3154d9,
-        #6424a8
-    );
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:'Inter', 'Noto Sans Bengali', system-ui, sans-serif;
+  background:linear-gradient(160deg, var(--u-blue-deep) 0%, var(--u-blue) 55%, var(--u-blue-bright) 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  position:relative;
+  padding:24px;
 }
 
-.login-box {
-    width: 410px;
+h1, h2{ font-family:'Poppins', 'Noto Sans Bengali', sans-serif; }
 
-    padding: 45px;
+/* ===================================== */
+/* AMBIENT ANIMATED ORBS */
+/* ===================================== */
 
-    border-radius: 18px;
-
-    background: rgba(255, 255, 255, 0.15);
-
-    border: 1px solid rgba(255, 255, 255, 0.3);
-
-    backdrop-filter: blur(15px);
-
-    box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.25);
-
-    color: white;
+.bg-orb{
+  position:fixed;
+  border-radius:50%;
+  filter:blur(60px);
+  opacity:0.55;
+  z-index:0;
+  animation:float 14s ease-in-out infinite;
 }
 
-.login-box h2 {
-    font-size: 32px;
-
-    margin-bottom: 8px;
+.orb-1{
+  width:420px; height:420px;
+  background:var(--u-teal);
+  top:-120px; left:-100px;
+  animation-delay:0s;
 }
 
-.login-box > p {
-    margin-bottom: 28px;
-
-    font-size: 16px;
+.orb-2{
+  width:340px; height:340px;
+  background:var(--u-gold);
+  opacity:0.28;
+  bottom:-140px; right:-80px;
+  animation-delay:2.5s;
 }
 
-form input[type="text"],
-form input[type="password"] {
-
-    width: 100%;
-
-    height: 50px;
-
-    padding: 0 15px;
-
-    margin-bottom: 15px;
-
-    border: none;
-
-    outline: none;
-
-    border-radius: 10px;
-
-    font-size: 15px;
+.orb-3{
+  width:260px; height:260px;
+  background:var(--u-blue-bright);
+  bottom:20%; left:8%;
+  animation-delay:5s;
 }
 
-.options {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    margin-bottom: 25px;
-
-    font-size: 14px;
+@keyframes float{
+  0%, 100%{ transform:translate(0,0) scale(1); }
+  50%{ transform:translate(30px, -25px) scale(1.08); }
 }
 
-.options label {
+/* ===================================== */
+/* LAYOUT */
+/* ===================================== */
 
-    display: flex;
-
-    align-items: center;
-
-    gap: 6px;
+.login-wrap{
+  position:relative;
+  z-index:1;
+  display:flex;
+  width:100%;
+  max-width:920px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.14);
+  border-radius:22px;
+  overflow:hidden;
+  backdrop-filter:blur(6px);
+  box-shadow:0 30px 70px rgba(0,10,40,0.45);
+  animation:riseIn .5s ease both;
 }
 
-.options input[type="checkbox"] {
-    width: 16px;
-    height: 16px;
+@keyframes riseIn{
+  from{ opacity:0; transform:translateY(18px); }
+  to{ opacity:1; transform:translateY(0); }
 }
 
-a {
-    color: white;
+/* Left brand panel */
 
-    font-weight: bold;
-
-    text-decoration: underline;
+.brand-side{
+  flex:1;
+  min-width:280px;
+  padding:48px 40px;
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 }
 
-form button {
-
-    width: 100%;
-
-    height: 50px;
-
-    border: none;
-
-    border-radius: 10px;
-
-    background: white;
-
-    color: #4b35b8;
-
-    font-size: 16px;
-
-    font-weight: bold;
-
-    cursor: pointer;
+.brand-mark{
+  width:52px; height:52px;
+  border-radius:14px;
+  background:linear-gradient(135deg, var(--u-teal), var(--u-blue-bright));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:'Poppins', sans-serif;
+  font-weight:800;
+  font-size:24px;
+  margin-bottom:22px;
+  box-shadow:0 8px 20px rgba(0,161,154,0.35);
 }
 
-form button:hover {
-
-    transform: translateY(-2px);
-
-    background: #eeeeee;
+.brand-side h1{
+  margin:0 0 8px 0;
+  font-size:30px;
+  font-weight:700;
+  letter-spacing:-0.3px;
 }
 
-.or {
-
-    text-align: center;
-
-    margin: 25px 0 15px;
+.brand-side p{
+  margin:0 0 34px 0;
+  color:#c9d3f0;
+  font-size:14px;
+  line-height:1.6;
 }
 
-.social-login {
-
-    display: flex;
-
-    gap: 12px;
+.brand-stats{
+  display:flex;
+  gap:22px;
 }
 
-.social-login button {
-
-    width: 50px;
-
-    height: 45px;
-
-    border: none;
-
-    border-radius: 8px;
-
-    background: white;
-
-    color: #333;
-
-    font-size: 18px;
-
-    font-weight: bold;
-
-    cursor: pointer;
+.brand-stats div{
+  border-left:2px solid var(--u-gold);
+  padding-left:12px;
 }
 
-.signup {
+.brand-stats strong{
+  display:block;
+  font-size:14px;
+  font-weight:700;
+}
 
-    text-align: center;
+.brand-stats span{
+  font-size:12px;
+  color:#aab6dc;
+}
 
-    margin-top: 25px;
+/* Right login card */
 
-    font-size: 14px;
+.login-box{
+  flex:1;
+  min-width:300px;
+  background:#ffffff;
+  padding:48px 40px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.login-box h2{
+  margin:0 0 6px 0;
+  font-size:24px;
+  color:var(--ink);
+}
+
+.login-sub{
+  margin:0 0 26px 0;
+  color:var(--muted);
+  font-size:13.5px;
+}
+
+#loginForm label{
+  display:block;
+  font-size:12.5px;
+  font-weight:600;
+  color:var(--ink);
+  margin:0 0 6px 0;
+}
+
+#loginForm input{
+  width:100%;
+  padding:12px 14px;
+  border:1.5px solid #e3e7f3;
+  border-radius:10px;
+  font-size:14px;
+  margin-bottom:18px;
+  transition:border-color .15s ease, box-shadow .15s ease;
+  font-family:inherit;
+}
+
+#loginForm input:focus{
+  outline:none;
+  border-color:var(--u-blue-bright);
+  box-shadow:0 0 0 3px rgba(31,111,219,0.15);
+}
+
+#loginForm button{
+  width:100%;
+  padding:13px;
+  border:none;
+  border-radius:10px;
+  background:linear-gradient(135deg, var(--u-blue-bright), var(--u-teal));
+  color:#fff;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+  margin-top:6px;
+  transition:transform .12s ease, box-shadow .2s ease;
+}
+
+#loginForm button:hover{
+  box-shadow:0 10px 24px rgba(31,111,219,0.35);
+  transform:translateY(-1px);
+}
+
+#loginForm button:active{
+  transform:scale(0.98);
+}
+
+@media (max-width: 720px){
+  .login-wrap{ flex-direction:column; }
+  .brand-side{ padding:36px 30px 20px 30px; }
+  .login-box{ padding:30px; }
 }
