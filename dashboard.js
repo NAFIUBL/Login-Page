@@ -5,304 +5,328 @@
 let selectedFile = null;
 let allData = [];
 
+const role = localStorage.getItem("ofsRole");
+const currentUser = localStorage.getItem("ofsUser");
+
+
+// ==========================================
+// 0. AUTH GUARD + ROLE SETUP
+// ==========================================
+
+if (!role) {
+
+    // লগইন ছাড়া কেউ dashboard.html-এ সরাসরি ঢুকলে
+    window.location.href = "index.html";
+
+}
+
+document.getElementById("userBadge").innerText =
+    "👤 " + currentUser + (role === "viewer" ? " (Viewer)" : "");
+
+document.getElementById("userBadge2").innerText =
+    "👤 " + currentUser + (role === "viewer" ? " (Viewer)" : "");
+
+
+if (role === "viewer") {
+
+    // Viewer রা Upload করতে পারবে না
+
+    document.getElementById("uploadBox").style.display = "none";
+    document.getElementById("viewerBanner").style.display = "block";
+
+} else {
+
+    // Uploader দের জন্য Export বাটন visible থাকবে (Upload করার পর)
+
+    document.getElementById("exportBtn").style.display = "inline-block";
+
+}
+
 
 // ==========================================
 // 1. SELECT EXCEL FILE
 // ==========================================
 
-document.getElementById("excelFile").addEventListener("change", function (event) {
+const excelFileInput = document.getElementById("excelFile");
 
-    selectedFile = event.target.files[0];
+if (excelFileInput) {
 
-    if (selectedFile) {
+    excelFileInput.addEventListener("change", function (event) {
 
-        alert(
-            "Excel File Selected:\n" +
-            selectedFile.name
-        );
+        selectedFile = event.target.files[0];
 
-    }
-
-});
-
-
-// ==========================================
-// 2. UPLOAD EXCEL
-// ==========================================
-
-document.getElementById("uploadBtn").addEventListener("click", function () {
-
-    if (!selectedFile) {
-
-        alert("Please choose an Excel file first!");
-
-        return;
-    }
-
-
-    const reader = new FileReader();
-
-
-    reader.onload = function (event) {
-
-        try {
-
-            const data = new Uint8Array(event.target.result);
-
-            const workbook = XLSX.read(data, {
-                type: "array"
-            });
-
-
-            // Clear old data
-
-            allData = [];
-
-
-            // ==================================
-            // Read All Excel Sheets
-            // ==================================
-
-            workbook.SheetNames.forEach(function (sheetName) {
-
-                const sheet = workbook.Sheets[sheetName];
-
-
-                const rows = XLSX.utils.sheet_to_json(
-                    sheet,
-                    {
-                        header: 1,
-                        defval: ""
-                    }
-                );
-
-
-                // Skip empty sheet
-
-                if (rows.length < 2) {
-                    return;
-                }
-
-
-                // ==================================
-                // Find Data Rows
-                // ==================================
-
-                for (let i = 0; i < rows.length; i++) {
-
-                    const row = rows[i];
-
-
-                    /*
-                        Based on your Excel:
-
-                        Area
-                        Territory
-                        Town
-                        Salesman Code
-                        Salesman Description
-                        Scheduled Outlets
-                        Non Scheduled Outlets
-                        S+NS Outlets
-                        Total Productive call
-                        BP%
-                    */
-
-
-                    if (
-                        row.length >= 5 &&
-                        row[4] !== "" &&
-                        row[4] !== null &&
-                        row[4] !== undefined
-                    ) {
-
-                        // Avoid header rows
-
-                        const salesmanName =
-                            String(row[4]).trim();
-
-
-                        if (
-                            salesmanName.toLowerCase()
-                            === "salesman description"
-                        ) {
-
-                            continue;
-
-                        }
-
-
-                        // ==================================
-                        // Get Town
-                        // ==================================
-
-                        let town = sheetName;
-
-                        if (row[2] !== "") {
-                            town = String(row[2]).trim();
-                        }
-
-
-                        // ==================================
-                        // Get Salesman Code
-                        // ==================================
-
-                        let salesmanCode = "";
-
-                        if (row[3] !== "") {
-
-                            salesmanCode =
-                                String(row[3]).trim();
-
-                        }
-
-
-                        // ==================================
-                        // Scheduled
-                        // ==================================
-
-                        let scheduled =
-                            Number(row[5]) || 0;
-
-
-                        // ==================================
-                        // Non Scheduled
-                        // ==================================
-
-                        let nonScheduled =
-                            Number(row[6]) || 0;
-
-
-                        // ==================================
-                        // S + NS
-                        // ==================================
-
-                        let totalOutlets =
-                            Number(row[7]) || 0;
-
-
-                        // ==================================
-                        // Productive Call
-                        // ==================================
-
-                        let productive =
-                            Number(row[8]) || 0;
-
-
-                        // ==================================
-                        // BP %
-                        // ==================================
-
-                        let bp =
-                            Number(row[9]) || 0;
-
-
-                        // If Excel has percentage as
-                        // 80 instead of 0.80
-
-                        if (bp > 1) {
-
-                            bp = bp / 100;
-
-                        }
-
-
-                        // ==================================
-                        // Add Data
-                        // ==================================
-
-                        allData.push({
-
-                            town: town,
-
-                            code: salesmanCode,
-
-                            salesman: salesmanName,
-
-                            scheduled: scheduled,
-
-                            nonScheduled: nonScheduled,
-
-                            totalOutlets: totalOutlets,
-
-                            productive: productive,
-
-                            bp: bp
-
-                        });
-
-                    }
-
-                }
-
-            });
-
-
-            // ==================================
-            // Remove Duplicate Rows
-            // ==================================
-
-            allData = allData.filter(function (item, index, self) {
-
-                return index === self.findIndex(function (x) {
-
-                    return (
-                        x.town === item.town &&
-                        x.code === item.code &&
-                        x.salesman === item.salesman
-                    );
-
-                });
-
-            });
-
-
-            // ==================================
-            // Update Dashboard + Salesman view
-            // ==================================
-
-            renderDashboard();
-            populateTownFilter();
-            renderSalesmanTable();
-
+        if (selectedFile) {
 
             alert(
-                "Excel Successfully Uploaded!\n\n" +
-                "Total Records: " +
-                allData.length
-            );
-
-
-        } catch (error) {
-
-            console.error(error);
-
-            alert(
-                "Excel file read করতে সমস্যা হয়েছে.\n" +
-                "Please check the Excel file."
+                "Excel File Selected:\n" +
+                selectedFile.name
             );
 
         }
 
-    };
+    });
 
-
-    reader.readAsArrayBuffer(selectedFile);
-
-});
+}
 
 
 // ==========================================
-// 3. LOGOUT
+// 2. UPLOAD EXCEL (Uploader only)
+// ==========================================
+
+const uploadBtn = document.getElementById("uploadBtn");
+
+if (uploadBtn) {
+
+    uploadBtn.addEventListener("click", function () {
+
+        if (role !== "uploader") {
+            alert("এই একাউন্টে Upload করার অনুমতি নেই।");
+            return;
+        }
+
+        if (!selectedFile) {
+
+            alert("Please choose an Excel file first!");
+
+            return;
+        }
+
+
+        const reader = new FileReader();
+
+
+        reader.onload = function (event) {
+
+            try {
+
+                const data = new Uint8Array(event.target.result);
+
+                const workbook = XLSX.read(data, {
+                    type: "array"
+                });
+
+
+                allData = [];
+
+
+                workbook.SheetNames.forEach(function (sheetName) {
+
+                    const sheet = workbook.Sheets[sheetName];
+
+
+                    const rows = XLSX.utils.sheet_to_json(
+                        sheet,
+                        {
+                            header: 1,
+                            defval: ""
+                        }
+                    );
+
+
+                    if (rows.length < 2) {
+                        return;
+                    }
+
+
+                    for (let i = 0; i < rows.length; i++) {
+
+                        const row = rows[i];
+
+
+                        /*
+                            Based on your Excel:
+
+                            Area
+                            Territory
+                            Town
+                            Salesman Code
+                            Salesman Description
+                            Scheduled Outlets
+                            Non Scheduled Outlets
+                            S+NS Outlets
+                            Total Productive call
+                            BP%
+                        */
+
+
+                        if (
+                            row.length >= 5 &&
+                            row[4] !== "" &&
+                            row[4] !== null &&
+                            row[4] !== undefined
+                        ) {
+
+                            const salesmanName =
+                                String(row[4]).trim();
+
+
+                            if (
+                                salesmanName.toLowerCase()
+                                === "salesman description"
+                            ) {
+
+                                continue;
+
+                            }
+
+
+                            let town = sheetName;
+
+                            if (row[2] !== "") {
+                                town = String(row[2]).trim();
+                            }
+
+
+                            let salesmanCode = "";
+
+                            if (row[3] !== "") {
+                                salesmanCode = String(row[3]).trim();
+                            }
+
+
+                            let scheduled = Number(row[5]) || 0;
+                            let nonScheduled = Number(row[6]) || 0;
+                            let totalOutlets = Number(row[7]) || 0;
+                            let productive = Number(row[8]) || 0;
+                            let bp = Number(row[9]) || 0;
+
+                            if (bp > 1) {
+                                bp = bp / 100;
+                            }
+
+
+                            allData.push({
+
+                                town: town,
+                                code: salesmanCode,
+                                salesman: salesmanName,
+                                scheduled: scheduled,
+                                nonScheduled: nonScheduled,
+                                totalOutlets: totalOutlets,
+                                productive: productive,
+                                bp: bp
+
+                            });
+
+                        }
+
+                    }
+
+                });
+
+
+                allData = allData.filter(function (item, index, self) {
+
+                    return index === self.findIndex(function (x) {
+
+                        return (
+                            x.town === item.town &&
+                            x.code === item.code &&
+                            x.salesman === item.salesman
+                        );
+
+                    });
+
+                });
+
+
+                // Uploader-এর নিজের ব্রাউজারে সেভ রাখা হচ্ছে,
+                // যাতে পরের বার লগইন করলেও ডাটা থাকে
+
+                localStorage.setItem("ofsReportData", JSON.stringify(allData));
+
+
+                renderDashboard();
+                populateTownFilter();
+                renderSalesmanTable();
+
+
+                alert(
+                    "Excel Successfully Uploaded!\n\n" +
+                    "Total Records: " +
+                    allData.length +
+                    "\n\nViewer-দের জন্য Website-এ Update করতে " +
+                    "'Download Report for Website' বাটনে ক্লিক করুন।"
+                );
+
+
+            } catch (error) {
+
+                console.error(error);
+
+                alert(
+                    "Excel file read করতে সমস্যা হয়েছে.\n" +
+                    "Please check the Excel file."
+                );
+
+            }
+
+        };
+
+
+        reader.readAsArrayBuffer(selectedFile);
+
+    });
+
+}
+
+
+// ==========================================
+// 3. EXPORT REPORT (for GitHub Pages / Viewers)
+// ==========================================
+
+const exportBtn = document.getElementById("exportBtn");
+
+if (exportBtn) {
+
+    exportBtn.addEventListener("click", function () {
+
+        if (allData.length === 0) {
+            alert("প্রথমে Excel Upload করুন, তারপর Export করুন।");
+            return;
+        }
+
+        const blob = new Blob(
+            [JSON.stringify(allData, null, 2)],
+            { type: "application/json" }
+        );
+
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "report-data.json";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
+        URL.revokeObjectURL(url);
+
+        alert(
+            "report-data.json ডাউনলোড হয়েছে।\n\n" +
+            "এবার এই ফাইলটা আপনার প্রজেক্ট ফোল্ডারে বসিয়ে " +
+            "GitHub-এ Commit + Push করুন — তাহলে Viewer-রা " +
+            "এই আপডেটেড রিপোর্ট দেখতে পাবে।"
+        );
+
+    });
+
+}
+
+
+// ==========================================
+// 4. LOGOUT
 // ==========================================
 
 function logout() {
+    localStorage.removeItem("ofsRole");
+    localStorage.removeItem("ofsUser");
     window.location.href = "index.html";
 }
 
 
 // ==========================================
-// 4. VIEW SWITCHING (Dashboard / Salesman)
+// 5. VIEW SWITCHING (Dashboard / Salesman)
 // ==========================================
 
 function showView(viewName) {
@@ -334,16 +358,11 @@ function showView(viewName) {
 
 
 // ==========================================
-// 5. DASHBOARD — KPI + Town-wise Report + Top/Low
-//    (No town filter here — always all data)
+// 6. DASHBOARD — KPI + Town-wise Report + Top/Low
 // ==========================================
 
 function renderDashboard() {
 
-
-    // ==================================
-    // KPI CARDS (global totals)
-    // ==================================
 
     document.getElementById("totalSalesman").innerText =
         allData.length.toLocaleString();
@@ -372,9 +391,7 @@ function renderDashboard() {
         (averageBP * 100).toFixed(1) + "%";
 
 
-    // ==================================
     // TOWN-WISE REPORT
-    // ==================================
 
     const townTableEl = document.getElementById("townTable");
     townTableEl.innerHTML = "";
@@ -389,7 +406,6 @@ function renderDashboard() {
 
     } else {
 
-        // Group by town
         const townMap = {};
 
         allData.forEach(function (item) {
@@ -440,9 +456,7 @@ function renderDashboard() {
     }
 
 
-    // ==================================
     // TOP / LOW PERFORMERS
-    // ==================================
 
     const sorted = allData.slice().sort(function (a, b) { return b.bp - a.bp; });
 
@@ -451,7 +465,7 @@ function renderDashboard() {
 
     if (sorted.length === 0) {
 
-        const msg = `<div class="empty-msg">এখনো কোনো ডাটা নেই। Excel Upload করুন।</div>`;
+        const msg = `<div class="empty-msg">এখনো কোনো ডাটা নেই।</div>`;
         topEl.innerHTML = msg;
         lowEl.innerHTML = msg;
 
@@ -476,7 +490,7 @@ function renderDashboard() {
 
 
 // ==========================================
-// 6. HELPER: build one salesman card (used by Top/Low)
+// 7. HELPER: build one salesman card
 // ==========================================
 
 function buildSalesmanCard(item, rankLabel) {
@@ -507,7 +521,7 @@ function buildSalesmanCard(item, rankLabel) {
 
 
 // ==========================================
-// 7. SALESMAN VIEW — Town filter + Search + List
+// 8. SALESMAN VIEW — Town filter + Search + List
 // ==========================================
 
 function populateTownFilter() {
@@ -529,7 +543,6 @@ function populateTownFilter() {
         select.appendChild(opt);
     });
 
-    // keep previous selection if it still exists
     if (towns.includes(currentValue) || currentValue === "All") {
         select.value = currentValue;
     }
@@ -612,7 +625,7 @@ function renderSalesmanTable() {
 
 
 // ==========================================
-// 8. SALESMAN PROFILE (details view)
+// 9. SALESMAN PROFILE (details view)
 // ==========================================
 
 function openSalesmanProfile(item) {
@@ -650,7 +663,51 @@ function closeSalesmanProfile() {
 
 
 // ==========================================
-// 9. INITIAL RENDER (empty state on page load)
+// 10. LOAD DATA ON PAGE OPEN
 // ==========================================
+// Uploader: আগে Upload করা থাকলে localStorage থেকে লোড হবে
+// Viewer  : সবসময় report-data.json থেকে লোড হবে (GitHub-এ commit করা ফাইল)
 
-renderDashboard();
+function initLoad() {
+
+    if (role === "viewer") {
+
+        fetch("report-data.json")
+            .then(function (res) {
+                if (!res.ok) throw new Error("no report file");
+                return res.json();
+            })
+            .then(function (json) {
+                allData = json;
+                renderDashboard();
+                populateTownFilter();
+                renderSalesmanTable();
+            })
+            .catch(function () {
+                // এখনো কোনো report-data.json commit করা হয়নি
+                renderDashboard();
+                populateTownFilter();
+                renderSalesmanTable();
+            });
+
+    } else {
+
+        const saved = localStorage.getItem("ofsReportData");
+
+        if (saved) {
+            try {
+                allData = JSON.parse(saved);
+            } catch (e) {
+                allData = [];
+            }
+        }
+
+        renderDashboard();
+        populateTownFilter();
+        renderSalesmanTable();
+
+    }
+
+}
+
+initLoad();

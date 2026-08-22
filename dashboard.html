@@ -10,9 +10,10 @@
 </head>
 <body>
     <div class="sidebar">
-        <h2><span class="logo-dot"></span>Bill Productivity</h2>
+        <h2><span class="logo-dot"></span>OFS Dashboard</h2>
         <a href="#" id="navDashboard" class="active" onclick="showView('dashboard'); return false;">📊 <span>Dashboard</span></a>
         <a href="#" id="navSalesman" onclick="showView('salesman'); return false;">👤 <span>Salesman</span></a>
+        <a href="#">📈 <span>Reports</span></a>
         <button onclick="logout()">Logout</button>
     </div>
 
@@ -28,17 +29,23 @@
                     <h1>Salesman Productivity</h1>
                     <p>Jhenaidah Territory — Overview</p>
                 </div>
-                <div class="user">👤 Nafi</div>
+                <div class="user" id="userBadge">👤 -</div>
             </div>
 
-            <!-- Excel Upload -->
-            <div class="upload-box">
+            <!-- Excel Upload (Uploader role only) -->
+            <div class="upload-box" id="uploadBox">
                 <div>
                     <h3>Upload Excel File</h3>
                     <p>Select your Salesman Productivity Excel file</p>
                 </div>
                 <input type="file" id="excelFile" accept=".xlsx,.xls">
                 <button id="uploadBtn">Upload Excel</button>
+                <button id="exportBtn" class="secondary-btn" style="display:none;">⬇ Download Report for Website</button>
+            </div>
+
+            <!-- Viewer info banner (Viewer role only) -->
+            <div class="viewer-banner" id="viewerBanner" style="display:none;">
+                📄 এটা সর্বশেষ Upload করা রিপোর্ট দেখাচ্ছে — Upload/Update করার অনুমতি নেই
             </div>
 
             <!-- KPI Cards -->
@@ -116,7 +123,7 @@
                     <h1>Salesman Report</h1>
                     <p>সব Salesman-এর তালিকা — বিস্তারিত দেখতে সারিতে ক্লিক করুন</p>
                 </div>
-                <div class="user">👤 Nafi</div>
+                <div class="user" id="userBadge2">👤 -</div>
             </div>
 
             <!-- List + filters -->

@@ -448,3 +448,33 @@ tbody tr:hover{background:#f8f7ff;}
 
 .profile-header h2{margin:0; font-size:19px;}
 .profile-header p{margin:4px 0 0 0; color:var(--muted); font-size:13px;}
+
+/* ===================================== */
+/* ROLE-BASED UI (Uploader / Viewer) */
+/* ===================================== */
+
+.secondary-btn{
+  background:#fff;
+  color:var(--indigo-dark);
+  border:1.5px solid var(--indigo);
+  padding:10px 18px;
+  border-radius:10px;
+  font-weight:600;
+  font-size:13.5px;
+  cursor:pointer;
+  margin-left:10px;
+}
+
+.secondary-btn:hover{
+  background:#f5f4fe;
+}
+
+.viewer-banner{
+  background:#eef2ff;
+  border:1px solid #c7d2fe;
+  color:var(--indigo-dark);
+  padding:12px 18px;
+  border-radius:var(--radius-sm);
+  font-size:13.5px;
+  margin-bottom:24px;
+}
