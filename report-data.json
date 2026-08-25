@@ -3,211 +3,211 @@
     "town": "Kaliganj",
     "code": "434488",
     "salesman": "MD. ATIK HASAN AION",
-    "scheduled": 559,
+    "scheduled": 705,
     "nonScheduled": 0,
-    "totalOutlets": 559,
-    "productive": 499,
-    "bp": 0.8926654740608229
+    "totalOutlets": 705,
+    "productive": 596,
+    "bp": 0.8453900709219858
   },
   {
     "town": "Kaliganj",
     "code": "417097",
     "salesman": "GOLAM BARI",
-    "scheduled": 608,
+    "scheduled": 753,
     "nonScheduled": 1,
-    "totalOutlets": 609,
-    "productive": 546,
-    "bp": 0.896551724137931
+    "totalOutlets": 754,
+    "productive": 643,
+    "bp": 0.8527851458885941
   },
   {
     "town": "Kaliganj",
     "code": "410285",
     "salesman": "MD SHIMUL REZA",
-    "scheduled": 631,
+    "scheduled": 790,
     "nonScheduled": 0,
-    "totalOutlets": 631,
-    "productive": 575,
-    "bp": 0.9112519809825673
+    "totalOutlets": 790,
+    "productive": 678,
+    "bp": 0.8582278481012658
   },
   {
     "town": "Kaliganj",
     "code": "333580",
     "salesman": "AZMUL HOSSAIN",
-    "scheduled": 595,
+    "scheduled": 743,
     "nonScheduled": 4,
-    "totalOutlets": 599,
-    "productive": 552,
-    "bp": 0.9215358931552587
-  },
-  {
-    "town": "Kaliganj",
-    "code": "336636",
-    "salesman": "MD RUBEL HOSSAIN",
-    "scheduled": 582,
-    "nonScheduled": 2,
-    "totalOutlets": 584,
-    "productive": 539,
-    "bp": 0.922945205479452
+    "totalOutlets": 747,
+    "productive": 653,
+    "bp": 0.8741633199464525
   },
   {
     "town": "Kaliganj",
     "code": "436314",
     "salesman": "MD ROKEY HOSSAN",
-    "scheduled": 626,
+    "scheduled": 786,
     "nonScheduled": 0,
-    "totalOutlets": 626,
-    "productive": 580,
-    "bp": 0.9265175718849841
+    "totalOutlets": 786,
+    "productive": 689,
+    "bp": 0.8765903307888041
   },
   {
     "town": "Kaliganj",
     "code": "334905",
     "salesman": "RIAZ HOSSEN",
-    "scheduled": 555,
-    "nonScheduled": 1,
-    "totalOutlets": 556,
-    "productive": 518,
-    "bp": 0.9316546762589928
-  },
-  {
-    "town": "Kaliganj",
-    "code": "433128",
-    "salesman": "SAGOR KUMAR ADHIKARI",
-    "scheduled": 595,
-    "nonScheduled": 7,
-    "totalOutlets": 602,
-    "productive": 561,
-    "bp": 0.9318936877076412
+    "scheduled": 691,
+    "nonScheduled": 2,
+    "totalOutlets": 693,
+    "productive": 609,
+    "bp": 0.8787878787878788
   },
   {
     "town": "Kaliganj",
     "code": "420775",
     "salesman": "NIL KUMAR MALI",
-    "scheduled": 633,
+    "scheduled": 791,
     "nonScheduled": 0,
-    "totalOutlets": 633,
-    "productive": 590,
-    "bp": 0.9320695102685624
+    "totalOutlets": 791,
+    "productive": 697,
+    "bp": 0.8811630847029077
   },
   {
     "town": "Kaliganj",
     "code": "410261",
     "salesman": "SOUMITRA KANJILAL",
-    "scheduled": 604,
+    "scheduled": 755,
     "nonScheduled": 0,
-    "totalOutlets": 604,
-    "productive": 565,
-    "bp": 0.9354304635761589
+    "totalOutlets": 755,
+    "productive": 666,
+    "bp": 0.8821192052980132
   },
   {
     "town": "Kaliganj",
     "code": "410284",
     "salesman": "MANTU ISLAM",
-    "scheduled": 587,
-    "nonScheduled": 12,
-    "totalOutlets": 599,
-    "productive": 563,
-    "bp": 0.9398998330550918
+    "scheduled": 742,
+    "nonScheduled": 14,
+    "totalOutlets": 756,
+    "productive": 667,
+    "bp": 0.8822751322751323
   },
   {
     "town": "Kaliganj",
-    "code": "433691",
-    "salesman": "PALLOB KUMAR",
-    "scheduled": 625,
-    "nonScheduled": 4,
-    "totalOutlets": 629,
-    "productive": 593,
-    "bp": 0.9427662957074722
-  },
-  {
-    "town": "Kaliganj",
-    "code": "410265",
-    "salesman": "BIPLOB GOSH",
-    "scheduled": 600,
-    "nonScheduled": 1,
-    "totalOutlets": 601,
-    "productive": 567,
-    "bp": 0.9434276206322796
+    "code": "336636",
+    "salesman": "MD RUBEL HOSSAIN",
+    "scheduled": 730,
+    "nonScheduled": 2,
+    "totalOutlets": 732,
+    "productive": 646,
+    "bp": 0.8825136612021858
   },
   {
     "town": "Kaliganj",
     "code": "410263",
     "salesman": "PRONAB KUMER",
-    "scheduled": 561,
+    "scheduled": 705,
     "nonScheduled": 3,
-    "totalOutlets": 564,
-    "productive": 534,
-    "bp": 0.9468085106382979
+    "totalOutlets": 708,
+    "productive": 627,
+    "bp": 0.885593220338983
+  },
+  {
+    "town": "Kaliganj",
+    "code": "433128",
+    "salesman": "SAGOR KUMAR ADHIKARI",
+    "scheduled": 735,
+    "nonScheduled": 12,
+    "totalOutlets": 747,
+    "productive": 664,
+    "bp": 0.8888888888888888
   },
   {
     "town": "Kaliganj",
     "code": "333591",
     "salesman": "MD. AMIRUL ISLAM",
-    "scheduled": 483,
+    "scheduled": 654,
+    "nonScheduled": 6,
+    "totalOutlets": 660,
+    "productive": 587,
+    "bp": 0.8893939393939394
+  },
+  {
+    "town": "Kaliganj",
+    "code": "410265",
+    "salesman": "BIPLOB GOSH",
+    "scheduled": 752,
+    "nonScheduled": 1,
+    "totalOutlets": 753,
+    "productive": 671,
+    "bp": 0.8911022576361222
+  },
+  {
+    "town": "Kaliganj",
+    "code": "433691",
+    "salesman": "PALLOB KUMAR",
+    "scheduled": 780,
     "nonScheduled": 5,
-    "totalOutlets": 488,
-    "productive": 465,
-    "bp": 0.9528688524590164
+    "totalOutlets": 785,
+    "productive": 702,
+    "bp": 0.8942675159235669
   },
   {
     "town": "Kaliganj",
     "code": "421646",
     "salesman": "MD BABLUR RAHMAN",
-    "scheduled": 627,
+    "scheduled": 786,
     "nonScheduled": 2,
-    "totalOutlets": 629,
-    "productive": 602,
-    "bp": 0.9570747217806042
+    "totalOutlets": 788,
+    "productive": 705,
+    "bp": 0.8946700507614214
   },
   {
     "town": "Kaliganj",
     "code": "410268",
     "salesman": "MD SHIFUR RAHMAN",
-    "scheduled": 630,
-    "nonScheduled": 28,
-    "totalOutlets": 658,
-    "productive": 635,
-    "bp": 0.9650455927051672
+    "scheduled": 787,
+    "nonScheduled": 31,
+    "totalOutlets": 818,
+    "productive": 740,
+    "bp": 0.9046454767726161
   },
   {
     "town": "Kaliganj",
     "code": "410262",
     "salesman": "MD ZAHIDUL ISLAM",
-    "scheduled": 594,
-    "nonScheduled": 4,
-    "totalOutlets": 598,
-    "productive": 580,
-    "bp": 0.9698996655518395
-  },
-  {
-    "town": "Kaliganj",
-    "code": "434490",
-    "salesman": "TONMOY HASAN MUNNA",
-    "scheduled": 602,
-    "nonScheduled": 1,
-    "totalOutlets": 603,
-    "productive": 588,
-    "bp": 0.9751243781094527
+    "scheduled": 743,
+    "nonScheduled": 5,
+    "totalOutlets": 748,
+    "productive": 683,
+    "bp": 0.9131016042780749
   },
   {
     "town": "Kaliganj",
     "code": "410272",
     "salesman": "ARABINDA SAHA",
-    "scheduled": 584,
+    "scheduled": 730,
     "nonScheduled": 0,
-    "totalOutlets": 584,
-    "productive": 571,
-    "bp": 0.9777397260273972
+    "totalOutlets": 730,
+    "productive": 672,
+    "bp": 0.9205479452054794
+  },
+  {
+    "town": "Kaliganj",
+    "code": "434490",
+    "salesman": "TONMOY HASAN MUNNA",
+    "scheduled": 749,
+    "nonScheduled": 1,
+    "totalOutlets": 750,
+    "productive": 691,
+    "bp": 0.9213333333333333
   },
   {
     "town": "Kaliganj",
     "code": "328154",
     "salesman": "TOPU KUMAR",
-    "scheduled": 576,
+    "scheduled": 720,
     "nonScheduled": 0,
-    "totalOutlets": 576,
-    "productive": 572,
-    "bp": 0.9930555555555556
+    "totalOutlets": 720,
+    "productive": 672,
+    "bp": 0.9333333333333333
   },
   {
     "town": "Jhenaidah",
