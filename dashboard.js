@@ -711,3 +711,34 @@ function initLoad() {
 }
 
 initLoad();
+
+
+// ==========================================
+// 11. DARK MODE TOGGLE
+// ==========================================
+
+(function () {
+
+    const themeToggle = document.getElementById("themeToggle");
+    if (!themeToggle) return;
+
+    const savedTheme = localStorage.getItem("ofsTheme") || "light";
+
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark");
+        themeToggle.checked = true;
+    }
+
+    themeToggle.addEventListener("change", function () {
+
+        if (themeToggle.checked) {
+            document.body.classList.add("dark");
+            localStorage.setItem("ofsTheme", "dark");
+        } else {
+            document.body.classList.remove("dark");
+            localStorage.setItem("ofsTheme", "light");
+        }
+
+    });
+
+})();
