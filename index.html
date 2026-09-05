@@ -13,53 +13,42 @@
     <span class="shape shape-1"></span>
     <span class="shape shape-2"></span>
     <span class="shape shape-3"></span>
-    <span class="shape shape-4"></span>
 
-    <div class="login-card">
+    <div class="login-stage">
 
-        <div class="illustration">
+        <!-- Character standing beside / reaching toward the form -->
+        <svg class="character" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
 
-            <svg viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="95" cy="285" rx="55" ry="10" fill="#0b0f2b" opacity="0.10"/>
 
-                <!-- soft ground shadow -->
-                <ellipse cx="130" cy="235" rx="70" ry="12" fill="#0b0f2b" opacity="0.10"/>
+            <!-- legs -->
+            <rect x="70" y="210" width="18" height="65" rx="9" fill="#3b3560"/>
+            <rect x="100" y="210" width="18" height="65" rx="9" fill="#3b3560"/>
+            <rect x="66" y="268" width="26" height="12" rx="6" fill="#1c1d2e"/>
+            <rect x="96" y="268" width="26" height="12" rx="6" fill="#1c1d2e"/>
 
-                <!-- floating dashboard card behind figure -->
-                <g class="float-slow">
-                    <rect x="30" y="40" width="120" height="80" rx="14" fill="#ffffff"/>
-                    <rect x="42" y="54" width="60" height="8" rx="4" fill="#c9d0f7"/>
-                    <rect x="42" y="70" width="90" height="6" rx="3" fill="#e4e8fb"/>
-                    <rect x="42" y="82" width="80" height="6" rx="3" fill="#e4e8fb"/>
-                    <rect x="42" y="94" width="40" height="14" rx="7" fill="#7c6cf0"/>
-                </g>
+            <!-- body -->
+            <rect x="58" y="140" width="72" height="80" rx="26" fill="#7c6cf0"/>
 
-                <!-- character: simple friendly figure -->
-                <g class="float-fig">
-                    <circle cx="150" cy="120" r="26" fill="#ffd58a"/>
-                    <path d="M124 118 q26 -18 52 0" stroke="#3a2c1a" stroke-width="4" fill="none" stroke-linecap="round"/>
-                    <rect x="130" y="150" width="40" height="70" rx="18" fill="#7c6cf0"/>
-                    <rect x="118" y="160" width="16" height="46" rx="8" fill="#6a59e0"/>
-                    <rect x="166" y="160" width="16" height="46" rx="8" fill="#6a59e0"/>
-                    <circle cx="150" cy="108" r="4" fill="#3a2c1a"/>
-                    <circle cx="166" cy="108" r="4" fill="#3a2c1a"/>
-                </g>
+            <!-- reaching arm (toward the form on the right) -->
+            <g class="reach-arm">
+                <rect x="118" y="150" width="60" height="16" rx="8" fill="#7c6cf0"/>
+                <circle cx="182" cy="158" r="11" fill="#ffd58a"/>
+            </g>
 
-                <!-- small orbiting dot accents -->
-                <circle class="orbit-dot dot-a" cx="60" cy="150" r="6" fill="#ff9fbb"/>
-                <circle class="orbit-dot dot-b" cx="205" cy="70" r="5" fill="#7ce0d3"/>
-                <circle class="orbit-dot dot-c" cx="200" cy="180" r="7" fill="#ffd58a"/>
+            <!-- other arm resting -->
+            <rect x="48" y="155" width="16" height="46" rx="8" fill="#6a59e0"/>
 
-            </svg>
+            <!-- head -->
+            <circle cx="94" cy="112" r="34" fill="#ffd58a"/>
+            <path d="M64 108 q30 -24 60 0" stroke="#3a2c1a" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <circle cx="84" cy="112" r="4.5" fill="#3a2c1a"/>
+            <circle cx="106" cy="112" r="4.5" fill="#3a2c1a"/>
+            <path d="M86 126 q8 6 16 0" stroke="#3a2c1a" stroke-width="3" fill="none" stroke-linecap="round"/>
 
-            <h2>Bill Productivity Report</h2>
-            <p>Jhenaidah Territory — নিরাপদ Login</p>
+        </svg>
 
-        </div>
-
-        <div class="form-side">
-
-            <h1>Sign in</h1>
-            <p class="sub">আপনার Username ও Password দিন</p>
+        <div class="login-card">
 
             <form id="loginForm">
 
@@ -73,9 +62,7 @@
                     <label for="password">Password</label>
                 </div>
 
-                <button type="submit">
-                    <span>Log In</span>
-                </button>
+                <button type="submit">Login</button>
 
             </form>
 
