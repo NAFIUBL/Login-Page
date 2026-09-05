@@ -1,744 +1,246 @@
-// ==========================================
-// SALESMAN PRODUCTIVITY DASHBOARD
-// ==========================================
+let data = [];
+let selectedUser = null;
 
-let selectedFile = null;
-let allData = [];
+// ==========================================
+// AUTH GUARD + ROLE SETUP (Uploader / Viewer)
+// ==========================================
 
 const role = localStorage.getItem("ofsRole");
 const currentUser = localStorage.getItem("ofsUser");
 
-
-// ==========================================
-// 0. AUTH GUARD + ROLE SETUP
-// ==========================================
-
 if (!role) {
-
-    // লগইন ছাড়া কেউ dashboard.html-এ সরাসরি ঢুকলে
-    window.location.href = "index.html";
-
+  window.location.href = "index.html";
 }
 
-document.getElementById("userBadge").innerText =
-    "👤 " + currentUser + (role === "viewer" ? " (Viewer)" : "");
+const demo = [
+  {town:"Jhenaidah",code:"SM001",name:"Arif Hossain",scheduled:92,nonScheduled:18,productive:88,bp:80},
+  {town:"Jhenaidah",code:"SM002",name:"Rakib Hasan",scheduled:86,nonScheduled:15,productive:69,bp:68},
+  {town:"Harinakundu",code:"SM003",name:"Sabbir Ahmed",scheduled:75,nonScheduled:12,productive:65,bp:75},
+  {town:"Kaliganj",code:"SM004",name:"Tanvir Islam",scheduled:98,nonScheduled:20,productive:91,bp:82},
+  {town:"Kotchandpur",code:"SM005",name:"Munna Rahman",scheduled:80,nonScheduled:21,productive:51,bp:50},
+  {town:"Maheshpur",code:"SM006",name:"Nayeem Khan",scheduled:72,nonScheduled:13,productive:57,bp:67},
+  {town:"Shailkupa",code:"SM007",name:"Sakib Ali",scheduled:89,nonScheduled:16,productive:78,bp:74},
+  {town:"Jhenaidah",code:"SM008",name:"Rasel Mia",scheduled:83,nonScheduled:10,productive:76,bp:92}
+];
 
-document.getElementById("userBadge2").innerText =
-    "👤 " + currentUser + (role === "viewer" ? " (Viewer)" : "");
+function n(v){ if(v===null||v===undefined||v==="") return 0; const x=parseFloat(String(v).replace(/[% ,]/g,"")); return isNaN(x)?0:x; }
+function key(s){return String(s??"").toLowerCase().replace(/[^a-z0-9]/g,"");}
+function findCol(row, names){
+  const ks=Object.keys(row); const wanted=names.map(key);
+  return ks.find(k=>wanted.includes(key(k))) || ks.find(k=>wanted.some(w=>key(k).includes(w)));
+}
+function normalizeRow(r){
+  const townK=findCol(r,["Town","Territory","Area","City"]);
+  const codeK=findCol(r,["Code","Salesman Code","SO Code","Employee Code"]);
+  const nameK=findCol(r,["Salesman","Salesman Name","SO Name","Name","Employee"]);
+  const schK=findCol(r,["Scheduled","Schedule","Scheduled Outlet","S"]);
+  const nsK=findCol(r,["Non Scheduled","Non-Scheduled","NS","NonScheduled"]);
+  const prodK=findCol(r,["Productive Call","Productive","ProductiveCall","PC"]);
+  const bpK=findCol(r,["BP%","BP","Bill Productivity","Bill Productivity %","Achievement"]);
+  let scheduled=n(r[schK]), nonScheduled=n(r[nsK]), productive=n(r[prodK]), bp=n(r[bpK]);
+  if(!bp && (scheduled+nonScheduled)>0 && productive>0) bp=(productive/(scheduled+nonScheduled))*100;
+  return {town:String(r[townK]??"Unknown").trim()||"Unknown",code:String(r[codeK]??"").trim(),name:String(r[nameK]??"Unknown").trim()||"Unknown",scheduled,nonScheduled,productive,bp};
+}
+function initials(name){return String(name||"?").split(/\s+/).slice(0,2).map(x=>x[0]).join("").toUpperCase();}
+function bpClass(v){return v>=80?"bp-good":v>=60?"bp-mid":"bp-low";}
+function avg(arr){return arr.length?arr.reduce((a,b)=>a+b,0)/arr.length:0;}
+function fmt(v){return Math.round(v*10)/10;}
+function set(id,text){const e=document.getElementById(id);if(e)e.textContent=text;}
 
+function render(){
+  const totalSalesman=data.length;
+  const totalOutlets=data.reduce((s,r)=>s+r.scheduled+r.nonScheduled,0);
+  const productive=data.reduce((s,r)=>s+r.productive,0);
+  const avgBP=avg(data.map(r=>r.bp));
+  set("totalSalesman",totalSalesman);set("totalOutlets",totalOutlets);set("productiveCall",productive);set("averageBP",fmt(avgBP)+"%");
+  set("donutValue",fmt(avgBP)+"%");
+  set("bpStatus",avgBP>=80?"Excellent territory performance":avgBP>=60?"Needs steady improvement":"Needs immediate attention");
+  set("salesmanTrend",totalSalesman?`${totalSalesman} active records loaded`:"Upload a report to begin");
+  const deg=Math.max(0,Math.min(100,avgBP))*3.6;
+  document.getElementById("donut").style.background=`conic-gradient(#6971ed 0deg ${deg}deg,#edf0f5 ${deg}deg 360deg)`;
+  const good=data.filter(r=>r.bp>=80).length, mid=data.filter(r=>r.bp>=60&&r.bp<80).length, low=data.filter(r=>r.bp<60).length;
+  set("goodCount",good);set("midCount",mid);set("lowCount",low);
+
+  renderTown(); renderPerformers(); renderSalesmen(); renderTownCards(); populateTownFilter();
+  set("lastUpdate",new Date().toLocaleTimeString([], {hour:"2-digit",minute:"2-digit"}));
+}
+
+function townSummary(){
+  const map={};
+  data.forEach(r=>{if(!map[r.town])map[r.town]={town:r.town,salesmen:0,outlets:0,productive:0,bps:[]};let t=map[r.town];t.salesmen++;t.outlets+=r.scheduled+r.nonScheduled;t.productive+=r.productive;t.bps.push(r.bp);});
+  return Object.values(map).map(t=>({...t,bp:avg(t.bps)})).sort((a,b)=>b.bp-a.bp);
+}
+function renderTown(){
+  const body=document.getElementById("townTable"); if(!body)return;
+  const rows=townSummary();
+  body.innerHTML=rows.length?rows.map(t=>`<tr><td><b>${escapeHtml(t.town)}</b></td><td>${t.salesmen}</td><td>${t.outlets}</td><td>${t.productive}</td><td><span class="bp-pill ${bpClass(t.bp)}">${fmt(t.bp)}%</span></td><td><div class="progress"><i style="width:${Math.min(t.bp,100)}%"></i></div></td></tr>`).join(""):`<tr><td colspan="6" class="empty">No data. Upload an Excel file.</td></tr>`;
+}
+function performerHTML(r){
+  return `<div class="performer" onclick="openSalesmanProfile('${encodeURIComponent(r.code||r.name)}')"><div class="mini-avatar">${initials(r.name)}</div><div class="performer-info"><b>${escapeHtml(r.name)}</b><span>${escapeHtml(r.town)} · ${escapeHtml(r.code||"—")}</span></div><div class="performer-score ${bpClass(r.bp)}">${fmt(r.bp)}%</div></div>`;
+}
+function renderPerformers(){
+  const sorted=[...data].sort((a,b)=>b.bp-a.bp);
+  document.getElementById("topPerformerList").innerHTML=sorted.slice(0,5).map(performerHTML).join("")||'<div class="empty">No data yet.</div>';
+  document.getElementById("lowPerformerList").innerHTML=sorted.slice(-5).reverse().map(performerHTML).join("")||'<div class="empty">No data yet.</div>';
+}
+function populateTownFilter(){
+  const s=document.getElementById("salesmanTownFilter"); if(!s)return;
+  const current=s.value; const towns=[...new Set(data.map(r=>r.town))].sort();
+  s.innerHTML='<option value="All">All Town</option>'+towns.map(t=>`<option>${escapeHtml(t)}</option>`).join("");
+  if(towns.includes(current))s.value=current;
+}
+function renderSalesmen(){
+  const town=document.getElementById("salesmanTownFilter")?.value||"All";
+  const q=(document.getElementById("salesmanSearchBox")?.value||"").toLowerCase();
+  const sort=document.getElementById("salesmanSort")?.value||"bp_desc";
+  let rows=data.filter(r=>(town==="All"||r.town===town)&&(`${r.name} ${r.code} ${r.town}`).toLowerCase().includes(q));
+  if(sort==="bp_desc")rows.sort((a,b)=>b.bp-a.bp); else if(sort==="bp_asc")rows.sort((a,b)=>a.bp-b.bp); else rows.sort((a,b)=>a.name.localeCompare(b.name));
+  document.getElementById("salesmanTable").innerHTML=rows.length?rows.map(r=>`<tr onclick="openSalesmanProfile('${encodeURIComponent(r.code||r.name)}')"><td>${escapeHtml(r.town)}</td><td>${escapeHtml(r.code||"—")}</td><td><b>${escapeHtml(r.name)}</b></td><td>${r.scheduled}</td><td>${r.nonScheduled}</td><td>${r.scheduled+r.nonScheduled}</td><td>${r.productive}</td><td><span class="bp-pill ${bpClass(r.bp)}">${fmt(r.bp)}%</span></td></tr>`).join(""):`<tr><td colspan="8" class="empty">No matching salesman.</td></tr>`;
+}
+function renderTownCards(){
+  const box=document.getElementById("townCards"); const rows=townSummary();
+  box.innerHTML=rows.map(t=>`<div class="town-card"><h3>${escapeHtml(t.town)}</h3><div class="town-meta">${t.salesmen} salesman · ${t.outlets} outlets</div><div class="town-big">${fmt(t.bp)}% <small>Avg BP%</small></div><div class="town-line"><i style="width:${Math.min(t.bp,100)}%"></i></div><div class="town-meta">${t.productive} productive calls</div></div>`).join("")||'<div class="empty">No town data.</div>';
+}
+function openSalesmanProfile(id){
+  const target=decodeURIComponent(id); selectedUser=data.find(r=>(r.code||r.name)===target)||data.find(r=>r.name===target); if(!selectedUser)return;
+  document.getElementById("salesmanListWrap")?.classList.add("hidden");
+  document.querySelector(".filter-bar")?.classList.add("hidden");
+  document.getElementById("salesmanProfile").classList.remove("hidden");
+  set("profileAvatar",initials(selectedUser.name));set("profileName",selectedUser.name);set("profileMeta",`${selectedUser.town} · ${selectedUser.code||"No code"}`);
+  set("profileScheduled",selectedUser.scheduled);set("profileNonScheduled",selectedUser.nonScheduled);set("profileTotalOutlets",selectedUser.scheduled+selectedUser.nonScheduled);set("profileProductive",selectedUser.productive);set("profileBP",fmt(selectedUser.bp)+"%");
+}
+function closeSalesmanProfile(){
+  document.getElementById("salesmanProfile").classList.add("hidden");
+  document.querySelector(".filter-bar")?.classList.remove("hidden");
+}
+function showView(view){
+  document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));
+  document.getElementById(view+"View").classList.add("active");
+  document.querySelectorAll(".nav-item").forEach(n=>n.classList.toggle("active",n.dataset.view===view));
+  const titles={dashboard:["Salesman Productivity","Jhenaidah Territory · Executive overview"],salesman:["Salesman Report","Detailed salesman performance"],town:["Town Analysis","Town-level productivity comparison"],reports:["Reports Center","Upload, export and data controls"]};
+  set("pageTitle",titles[view][0]);set("pageSubtitle",titles[view][1]);
+  document.getElementById("sidebar").classList.remove("open");document.getElementById("overlay").classList.remove("show");
+}
+document.querySelectorAll(".nav-item").forEach(b=>b.addEventListener("click",()=>showView(b.dataset.view)));
+document.querySelectorAll("[data-view-link]").forEach(b=>b.addEventListener("click",()=>showView(b.dataset.viewLink)));
+
+document.getElementById("salesmanTownFilter").addEventListener("change",renderSalesmen);
+document.getElementById("salesmanSearchBox").addEventListener("input",renderSalesmen);
+document.getElementById("salesmanSort").addEventListener("change",renderSalesmen);
+
+document.getElementById("openSidebar").onclick=()=>{document.getElementById("sidebar").classList.add("open");document.getElementById("overlay").classList.add("show")};
+document.getElementById("closeSidebar").onclick=()=>{document.getElementById("sidebar").classList.remove("open");document.getElementById("overlay").classList.remove("show")};
+document.getElementById("overlay").onclick=()=>document.getElementById("closeSidebar").click();
+
+document.getElementById("themeToggle").onchange=e=>{document.body.classList.toggle("dark",e.target.checked);localStorage.setItem("dashboardDark",e.target.checked?"1":"0")};
+if(localStorage.getItem("dashboardDark")==="1"){document.body.classList.add("dark");document.getElementById("themeToggle").checked=true}
+document.getElementById("refreshBtn").onclick=()=>render();
+
+document.getElementById("excelFile").addEventListener("change",async e=>{
+  const file=e.target.files[0]; if(!file)return;
+  try{
+    const buf=await file.arrayBuffer();
+    let rows=[];
+    if(file.name.toLowerCase().endsWith(".csv")){
+      const text=new TextDecoder().decode(buf); rows=parseCSV(text);
+    }else{
+      const wb=XLSX.read(buf,{type:"array"}); const ws=wb.Sheets[wb.SheetNames[0]];
+      rows=XLSX.utils.sheet_to_json(ws,{defval:""});
+    }
+    const normalized=rows.map(normalizeRow).filter(r=>r.name&&r.name!=="Unknown");
+    if(!normalized.length)throw new Error("No recognizable rows");
+    data=normalized; localStorage.setItem("dashboardData",JSON.stringify(data)); render();
+    alert(`Loaded ${data.length} salesman records.`);
+  }catch(err){alert("Could not read this file. Please check the Excel headers and try again.");console.error(err)}
+});
+
+document.getElementById("exportBtn").onclick=exportCSV;
+document.getElementById("reportExport").onclick=exportCSV;
+document.getElementById("resetData").onclick=()=>{if(confirm("Reset dashboard and remove uploaded data?")){localStorage.removeItem("dashboardData");data=[];render();}};
+function exportCSV(){
+  if(!data.length)return alert("No data to export.");
+  const rows=[["Town","Code","Salesman","Scheduled","Non Scheduled","Total Outlets","Productive Call","BP%"],...data.map(r=>[r.town,r.code,r.name,r.scheduled,r.nonScheduled,r.scheduled+r.nonScheduled,r.productive,fmt(r.bp)])];
+  const csv=rows.map(r=>r.map(v=>`"${String(v).replaceAll('"','""')}"`).join(",")).join("\n");
+  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"}));a.download="Salesman_Productivity_Report.csv";a.click();URL.revokeObjectURL(a.href);
+}
+function parseCSV(text){
+  const lines=text.split(/\r?\n/).filter(Boolean);if(!lines.length)return [];
+  const headers=lines[0].split(",").map(x=>x.trim().replace(/^"|"$/g,""));
+  return lines.slice(1).map(line=>{const vals=line.split(",").map(x=>x.trim().replace(/^"|"$/g,""));const o={};headers.forEach((h,i)=>o[h]=vals[i]??"");return o});
+}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));}
+function logout(){
+  localStorage.removeItem("ofsRole");
+  localStorage.removeItem("ofsUser");
+  location.href="index.html";
+}
+
+// ==========================================
+// ROLE-BASED UI (Uploader / Viewer)
+// ==========================================
+
+set("userBadge", (currentUser||"User") + (role==="viewer" ? " (Viewer)" : ""));
+set("avatar", initials(currentUser||"U"));
 
 if (role === "viewer") {
 
-    // Viewer রা Upload করতে পারবে না
-
-    document.getElementById("uploadBox").style.display = "none";
-    document.getElementById("viewerBanner").style.display = "block";
+  // Viewer রা Upload/Reset করতে পারবে না
+  document.getElementById("uploadWrap")?.style.setProperty("display","none");
+  document.getElementById("uploadReportCard")?.style.setProperty("display","none");
+  document.getElementById("resetReportCard")?.style.setProperty("display","none");
+  document.getElementById("viewerBanner")?.style.setProperty("display","block");
 
 } else {
 
-    // Uploader দের জন্য Export বাটন visible থাকবে (Upload করার পর)
-
-    document.getElementById("exportBtn").style.display = "inline-block";
-
-}
-
-
-// ==========================================
-// 1. SELECT EXCEL FILE
-// ==========================================
-
-const excelFileInput = document.getElementById("excelFile");
-
-if (excelFileInput) {
-
-    excelFileInput.addEventListener("change", function (event) {
-
-        selectedFile = event.target.files[0];
-
-        if (selectedFile) {
-
-            alert(
-                "Excel File Selected:\n" +
-                selectedFile.name
-            );
-
-        }
-
-    });
+  // Uploader রা Website Update বাটন দেখবে
+  document.getElementById("exportJSONBtn")?.style.setProperty("display","inline-flex");
+  document.getElementById("jsonReportCard")?.style.setProperty("display","block");
 
 }
 
-
 // ==========================================
-// 2. UPLOAD EXCEL (Uploader only)
+// EXPORT report-data.json (for GitHub Pages / Viewers)
 // ==========================================
 
-const uploadBtn = document.getElementById("uploadBtn");
-
-if (uploadBtn) {
-
-    uploadBtn.addEventListener("click", function () {
-
-        if (role !== "uploader") {
-            alert("এই একাউন্টে Upload করার অনুমতি নেই।");
-            return;
-        }
-
-        if (!selectedFile) {
-
-            alert("Please choose an Excel file first!");
-
-            return;
-        }
-
-
-        const reader = new FileReader();
-
-
-        reader.onload = function (event) {
-
-            try {
-
-                const data = new Uint8Array(event.target.result);
-
-                const workbook = XLSX.read(data, {
-                    type: "array"
-                });
-
-
-                allData = [];
-
-
-                workbook.SheetNames.forEach(function (sheetName) {
-
-                    const sheet = workbook.Sheets[sheetName];
-
-
-                    const rows = XLSX.utils.sheet_to_json(
-                        sheet,
-                        {
-                            header: 1,
-                            defval: ""
-                        }
-                    );
-
-
-                    if (rows.length < 2) {
-                        return;
-                    }
-
-
-                    for (let i = 0; i < rows.length; i++) {
-
-                        const row = rows[i];
-
-
-                        /*
-                            Based on your Excel:
-
-                            Area
-                            Territory
-                            Town
-                            Salesman Code
-                            Salesman Description
-                            Scheduled Outlets
-                            Non Scheduled Outlets
-                            S+NS Outlets
-                            Total Productive call
-                            BP%
-                        */
-
-
-                        if (
-                            row.length >= 5 &&
-                            row[4] !== "" &&
-                            row[4] !== null &&
-                            row[4] !== undefined
-                        ) {
-
-                            const salesmanName =
-                                String(row[4]).trim();
-
-
-                            if (
-                                salesmanName.toLowerCase()
-                                === "salesman description"
-                            ) {
-
-                                continue;
-
-                            }
-
-
-                            let town = sheetName;
-
-                            if (row[2] !== "") {
-                                town = String(row[2]).trim();
-                            }
-
-
-                            let salesmanCode = "";
-
-                            if (row[3] !== "") {
-                                salesmanCode = String(row[3]).trim();
-                            }
-
-
-                            let scheduled = Number(row[5]) || 0;
-                            let nonScheduled = Number(row[6]) || 0;
-                            let totalOutlets = Number(row[7]) || 0;
-                            let productive = Number(row[8]) || 0;
-                            let bp = Number(row[9]) || 0;
-
-                            if (bp > 1) {
-                                bp = bp / 100;
-                            }
-
-
-                            allData.push({
-
-                                town: town,
-                                code: salesmanCode,
-                                salesman: salesmanName,
-                                scheduled: scheduled,
-                                nonScheduled: nonScheduled,
-                                totalOutlets: totalOutlets,
-                                productive: productive,
-                                bp: bp
-
-                            });
-
-                        }
-
-                    }
-
-                });
-
-
-                allData = allData.filter(function (item, index, self) {
-
-                    return index === self.findIndex(function (x) {
-
-                        return (
-                            x.town === item.town &&
-                            x.code === item.code &&
-                            x.salesman === item.salesman
-                        );
-
-                    });
-
-                });
-
-
-                // Uploader-এর নিজের ব্রাউজারে সেভ রাখা হচ্ছে,
-                // যাতে পরের বার লগইন করলেও ডাটা থাকে
-
-                localStorage.setItem("ofsReportData", JSON.stringify(allData));
-
-
-                renderDashboard();
-                populateTownFilter();
-                renderSalesmanTable();
-
-
-                alert(
-                    "Excel Successfully Uploaded!\n\n" +
-                    "Total Records: " +
-                    allData.length +
-                    "\n\nViewer-দের জন্য Website-এ Update করতে " +
-                    "'Download Report for Website' বাটনে ক্লিক করুন।"
-                );
-
-
-            } catch (error) {
-
-                console.error(error);
-
-                alert(
-                    "Excel file read করতে সমস্যা হয়েছে.\n" +
-                    "Please check the Excel file."
-                );
-
-            }
-
-        };
-
-
-        reader.readAsArrayBuffer(selectedFile);
-
-    });
-
+function exportJSON(){
+  if(!data.length) return alert("প্রথমে Excel Upload করুন, তারপর Export করুন।");
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement("a");
+  a.href=url; a.download="report-data.json";
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  alert("report-data.json ডাউনলোড হয়়েছে।\n\nএই ফাইলটা প্রজেক্ট ফোল্ডারে বসিয়়ে GitHub-এ Commit + Push করুন — তাহলে Viewer-রা এই আপডেটেড রিপোর্ট দেখতে পাবে।");
 }
 
+document.getElementById("exportJSONBtn")?.addEventListener("click", exportJSON);
+document.getElementById("reportExportJSON")?.addEventListener("click", exportJSON);
 
 // ==========================================
-// 3. EXPORT REPORT (for GitHub Pages / Viewers)
+// INITIAL DATA LOAD
 // ==========================================
 
-const exportBtn = document.getElementById("exportBtn");
+function loadInitialData(){
 
-if (exportBtn) {
+  if (role === "viewer") {
 
-    exportBtn.addEventListener("click", function () {
+    fetch("report-data.json")
+      .then(res => { if(!res.ok) throw new Error("no report file"); return res.json(); })
+      .then(json => { data = Array.isArray(json) ? json : []; render(); })
+      .catch(() => { data = []; render(); });
 
-        if (allData.length === 0) {
-            alert("প্রথমে Excel Upload করুন, তারপর Export করুন।");
-            return;
-        }
+  } else {
 
-        const blob = new Blob(
-            [JSON.stringify(allData, null, 2)],
-            { type: "application/json" }
-        );
-
-        const url = URL.createObjectURL(blob);
-
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "report-data.json";
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-
-        URL.revokeObjectURL(url);
-
-        alert(
-            "report-data.json ডাউনলোড হয়েছে।\n\n" +
-            "এবার এই ফাইলটা আপনার প্রজেক্ট ফোল্ডারে বসিয়ে " +
-            "GitHub-এ Commit + Push করুন — তাহলে Viewer-রা " +
-            "এই আপডেটেড রিপোর্ট দেখতে পাবে।"
-        );
-
-    });
-
-}
-
-
-// ==========================================
-// 4. LOGOUT
-// ==========================================
-
-function logout() {
-    localStorage.removeItem("ofsRole");
-    localStorage.removeItem("ofsUser");
-    window.location.href = "index.html";
-}
-
-
-// ==========================================
-// 5. VIEW SWITCHING (Dashboard / Salesman)
-// ==========================================
-
-function showView(viewName) {
-
-    document.querySelectorAll(".view").forEach(function (v) {
-        v.classList.remove("active");
-    });
-
-    document.querySelectorAll(".sidebar a").forEach(function (a) {
-        a.classList.remove("active");
-    });
-
-    if (viewName === "dashboard") {
-
-        document.getElementById("dashboardView").classList.add("active");
-        document.getElementById("navDashboard").classList.add("active");
-
-    } else if (viewName === "salesman") {
-
-        document.getElementById("salesmanView").classList.add("active");
-        document.getElementById("navSalesman").classList.add("active");
-
-        closeSalesmanProfile();
-        renderSalesmanTable();
-
+    const saved = localStorage.getItem("dashboardData");
+    try {
+      data = saved ? JSON.parse(saved) : [];
+    } catch {
+      data = [];
     }
+    render();
+
+  }
 
 }
 
-
-// ==========================================
-// 6. DASHBOARD — KPI + Town-wise Report + Top/Low
-// ==========================================
-
-function renderDashboard() {
-
-
-    document.getElementById("totalSalesman").innerText =
-        allData.length.toLocaleString();
-
-    const totalOutlets =
-        allData.reduce(function (t, item) { return t + item.totalOutlets; }, 0);
-
-    document.getElementById("totalOutlets").innerText =
-        totalOutlets.toLocaleString();
-
-    const productiveCall =
-        allData.reduce(function (t, item) { return t + item.productive; }, 0);
-
-    document.getElementById("productiveCall").innerText =
-        productiveCall.toLocaleString();
-
-    let averageBP = 0;
-
-    if (allData.length > 0) {
-        const totalBP =
-            allData.reduce(function (t, item) { return t + item.bp; }, 0);
-        averageBP = totalBP / allData.length;
-    }
-
-    document.getElementById("averageBP").innerText =
-        (averageBP * 100).toFixed(1) + "%";
-
-
-    // TOWN-WISE REPORT
-
-    const townTableEl = document.getElementById("townTable");
-    townTableEl.innerHTML = "";
-
-    if (allData.length === 0) {
-
-        townTableEl.innerHTML = `
-            <tr>
-                <td colspan="5" style="text-align:center; padding:26px;">No Data Found</td>
-            </tr>
-        `;
-
-    } else {
-
-        const townMap = {};
-
-        allData.forEach(function (item) {
-
-            if (!townMap[item.town]) {
-                townMap[item.town] = {
-                    town: item.town,
-                    salesmanCount: 0,
-                    totalOutlets: 0,
-                    productive: 0,
-                    bpSum: 0
-                };
-            }
-
-            townMap[item.town].salesmanCount += 1;
-            townMap[item.town].totalOutlets += item.totalOutlets;
-            townMap[item.town].productive += item.productive;
-            townMap[item.town].bpSum += item.bp;
-
-        });
-
-        const townRows = Object.values(townMap).sort(function (a, b) {
-            return b.totalOutlets - a.totalOutlets;
-        });
-
-        townRows.forEach(function (t) {
-
-            const avgBp = t.salesmanCount > 0 ? (t.bpSum / t.salesmanCount) : 0;
-
-            let bpClass = "bp-low";
-            if (avgBp >= 0.90) bpClass = "bp-good";
-            else if (avgBp >= 0.80) bpClass = "bp-medium";
-
-            const row = document.createElement("tr");
-
-            row.innerHTML = `
-                <td>${t.town}</td>
-                <td>${t.salesmanCount}</td>
-                <td>${t.totalOutlets.toLocaleString()}</td>
-                <td>${t.productive.toLocaleString()}</td>
-                <td><span class="bp-tag ${bpClass}">${(avgBp * 100).toFixed(1)}%</span></td>
-            `;
-
-            townTableEl.appendChild(row);
-
-        });
-
-    }
-
-
-    // TOP / LOW PERFORMERS
-
-    const sorted = allData.slice().sort(function (a, b) { return b.bp - a.bp; });
-
-    const topEl = document.getElementById("topPerformerList");
-    const lowEl = document.getElementById("lowPerformerList");
-
-    if (sorted.length === 0) {
-
-        const msg = `<div class="empty-msg">এখনো কোনো ডাটা নেই।</div>`;
-        topEl.innerHTML = msg;
-        lowEl.innerHTML = msg;
-
-    } else {
-
-        topEl.innerHTML = "";
-        const topCount = Math.min(5, sorted.length);
-        for (let i = 0; i < topCount; i++) {
-            topEl.appendChild(buildSalesmanCard(sorted[i], "#" + (i + 1)));
-        }
-
-        lowEl.innerHTML = "";
-        const lowCount = Math.min(5, sorted.length);
-        const lowSlice = sorted.slice(sorted.length - lowCount).reverse();
-        lowSlice.forEach(function (item, i) {
-            lowEl.appendChild(buildSalesmanCard(item, "#" + (i + 1)));
-        });
-
-    }
-
-}
-
-
-// ==========================================
-// 7. HELPER: build one salesman card
-// ==========================================
-
-function buildSalesmanCard(item, rankLabel) {
-
-    let bpClass = "bp-low";
-
-    if (item.bp >= 0.90) bpClass = "bp-good";
-    else if (item.bp >= 0.80) bpClass = "bp-medium";
-
-    const card = document.createElement("div");
-    card.className = "salesman-card";
-
-    card.innerHTML = `
-        ${rankLabel ? `<span class="rank-badge">${rankLabel}</span>` : ""}
-        <h4>${item.salesman}</h4>
-        <p>Code: ${item.code}</p>
-        <p>Town: ${item.town}</p>
-        <span class="bp-tag ${bpClass}">${(item.bp * 100).toFixed(1)}% BP</span>
-    `;
-
-    card.addEventListener("click", function () {
-        openSalesmanProfile(item);
-    });
-
-    return card;
-
-}
-
-
-// ==========================================
-// 8. SALESMAN VIEW — Town filter + Search + List
-// ==========================================
-
-function populateTownFilter() {
-
-    const select = document.getElementById("salesmanTownFilter");
-    if (!select) return;
-
-    const currentValue = select.value || "All";
-
-    const towns = Array.from(new Set(allData.map(function (i) { return i.town; })))
-        .sort();
-
-    select.innerHTML = `<option value="All">All Town</option>`;
-
-    towns.forEach(function (t) {
-        const opt = document.createElement("option");
-        opt.value = t;
-        opt.textContent = t;
-        select.appendChild(opt);
-    });
-
-    if (towns.includes(currentValue) || currentValue === "All") {
-        select.value = currentValue;
-    }
-
-}
-
-document.getElementById("salesmanTownFilter").addEventListener("change", renderSalesmanTable);
-document.getElementById("salesmanSearchBox").addEventListener("input", renderSalesmanTable);
-
-
-function renderSalesmanTable() {
-
-    const tableEl = document.getElementById("salesmanTable");
-    if (!tableEl) return;
-
-    const town = document.getElementById("salesmanTownFilter").value;
-
-    const search =
-        document.getElementById("salesmanSearchBox").value
-            .toLowerCase()
-            .trim();
-
-    const filtered = allData.filter(function (item) {
-
-        const townMatch =
-            town === "All" || item.town.toLowerCase() === town.toLowerCase();
-
-        const searchMatch =
-            item.salesman.toLowerCase().includes(search) ||
-            String(item.code).toLowerCase().includes(search);
-
-        return townMatch && searchMatch;
-
-    });
-
-    const sorted = filtered.slice().sort(function (a, b) { return b.bp - a.bp; });
-
-    tableEl.innerHTML = "";
-
-    if (sorted.length === 0) {
-
-        tableEl.innerHTML = `
-            <tr>
-                <td colspan="8" style="text-align:center; padding:30px;">No Data Found</td>
-            </tr>
-        `;
-
-        return;
-
-    }
-
-    sorted.forEach(function (item) {
-
-        let bpClass = "bp-low";
-        if (item.bp >= 0.90) bpClass = "bp-good";
-        else if (item.bp >= 0.80) bpClass = "bp-medium";
-
-        const row = document.createElement("tr");
-
-        row.innerHTML = `
-            <td>${item.town}</td>
-            <td>${item.code}</td>
-            <td>${item.salesman}</td>
-            <td>${item.scheduled}</td>
-            <td>${item.nonScheduled}</td>
-            <td>${item.totalOutlets}</td>
-            <td>${item.productive}</td>
-            <td><span class="bp-tag ${bpClass}">${(item.bp * 100).toFixed(1)}%</span></td>
-        `;
-
-        row.addEventListener("click", function () {
-            openSalesmanProfile(item);
-        });
-
-        tableEl.appendChild(row);
-
-    });
-
-}
-
-
-// ==========================================
-// 9. SALESMAN PROFILE (details view)
-// ==========================================
-
-function openSalesmanProfile(item) {
-
-    document.getElementById("salesmanListWrap").style.display = "none";
-    document.getElementById("salesmanProfile").style.display = "block";
-
-    document.getElementById("profileName").innerText = item.salesman;
-    document.getElementById("profileMeta").innerText =
-        "Code: " + item.code + "  |  Town: " + item.town;
-
-    document.getElementById("profileScheduled").innerText =
-        item.scheduled.toLocaleString();
-
-    document.getElementById("profileNonScheduled").innerText =
-        item.nonScheduled.toLocaleString();
-
-    document.getElementById("profileTotalOutlets").innerText =
-        item.totalOutlets.toLocaleString();
-
-    document.getElementById("profileProductive").innerText =
-        item.productive.toLocaleString();
-
-    document.getElementById("profileBP").innerText =
-        (item.bp * 100).toFixed(1) + "%";
-
-}
-
-function closeSalesmanProfile() {
-
-    document.getElementById("salesmanProfile").style.display = "none";
-    document.getElementById("salesmanListWrap").style.display = "block";
-
-}
-
-
-// ==========================================
-// 10. LOAD DATA ON PAGE OPEN
-// ==========================================
-// Uploader: আগে Upload করা থাকলে localStorage থেকে লোড হবে
-// Viewer  : সবসময় report-data.json থেকে লোড হবে (GitHub-এ commit করা ফাইল)
-
-function initLoad() {
-
-    if (role === "viewer") {
-
-        fetch("report-data.json")
-            .then(function (res) {
-                if (!res.ok) throw new Error("no report file");
-                return res.json();
-            })
-            .then(function (json) {
-                allData = json;
-                renderDashboard();
-                populateTownFilter();
-                renderSalesmanTable();
-            })
-            .catch(function () {
-                // এখনো কোনো report-data.json commit করা হয়নি
-                renderDashboard();
-                populateTownFilter();
-                renderSalesmanTable();
-            });
-
-    } else {
-
-        const saved = localStorage.getItem("ofsReportData");
-
-        if (saved) {
-            try {
-                allData = JSON.parse(saved);
-            } catch (e) {
-                allData = [];
-            }
-        }
-
-        renderDashboard();
-        populateTownFilter();
-        renderSalesmanTable();
-
-    }
-
-}
-
-initLoad();
-
-
-// ==========================================
-// 11. DARK MODE TOGGLE
-// ==========================================
-
-(function () {
-
-    const themeToggle = document.getElementById("themeToggle");
-    if (!themeToggle) return;
-
-    const savedTheme = localStorage.getItem("ofsTheme") || "light";
-
-    if (savedTheme === "dark") {
-        document.body.classList.add("dark");
-        themeToggle.checked = true;
-    }
-
-    themeToggle.addEventListener("change", function () {
-
-        if (themeToggle.checked) {
-            document.body.classList.add("dark");
-            localStorage.setItem("ofsTheme", "dark");
-        } else {
-            document.body.classList.remove("dark");
-            localStorage.setItem("ofsTheme", "light");
-        }
-
-    });
-
-})();
+loadInitialData();
