@@ -136,20 +136,70 @@ document.getElementById("themeToggle").onchange=e=>{document.body.classList.togg
 if(localStorage.getItem("dashboardDark")==="1"){document.body.classList.add("dark");document.getElementById("themeToggle").checked=true}
 document.getElementById("refreshBtn").onclick=()=>render();
 
+function colIdx(header, names){
+  for(const nm of names){
+    const idx = header.findIndex(h => String(h||"").trim().toLowerCase() === nm.toLowerCase());
+    if(idx !== -1) return idx;
+  }
+  for(const nm of names){
+    const idx = header.findIndex(h => String(h||"").trim().toLowerCase().includes(nm.toLowerCase()));
+    if(idx !== -1) return idx;
+  }
+  return -1;
+}
+
 document.getElementById("excelFile").addEventListener("change",async e=>{
   const file=e.target.files[0]; if(!file)return;
   try{
     const buf=await file.arrayBuffer();
-    let rows=[];
+    let combined=[];
+
     if(file.name.toLowerCase().endsWith(".csv")){
-      const text=new TextDecoder().decode(buf); rows=parseCSV(text);
-    }else{
-      const wb=XLSX.read(buf,{type:"array"}); const ws=wb.Sheets[wb.SheetNames[0]];
-      rows=XLSX.utils.sheet_to_json(ws,{defval:""});
+      const text=new TextDecoder().decode(buf);
+      combined = parseCSV(text).map(normalizeRow).filter(r=>r.name&&r.name!=="Unknown");
+    } else {
+      const wb=XLSX.read(buf,{type:"array"});
+
+      wb.SheetNames.forEach(sheetName=>{
+        const ws=wb.Sheets[sheetName];
+        const rows=XLSX.utils.sheet_to_json(ws,{header:1,defval:""});
+        if(rows.length<2) return;
+
+        // হেডার সারি খুঁজে বের করা (কিছু ফাইলে উপরে একটা খালি সারি থাকে)
+        let headerRowIdx = rows.findIndex(r=>r.some(c=>String(c).toLowerCase().includes("salesman")));
+        if(headerRowIdx===-1) headerRowIdx = 0;
+        const header = rows[headerRowIdx].map(h=>String(h||"").trim());
+
+        const townIdx = colIdx(header, ["Town"]);
+        const codeIdx = colIdx(header, ["Salesman Code","Code"]);
+        const nameIdx = colIdx(header, ["Salesman Description","Salesman Name","Salesman"]);
+        const schIdx  = colIdx(header, ["Scheduled Outlets","Scheduled"]);
+        const nsIdx   = colIdx(header, ["Non Scheduled Outlets","Non Scheduled"]);
+        const prodIdx = colIdx(header, ["Total Productive call","Productive Call","Productive"]);
+        const bpIdx   = colIdx(header, ["BP%","BP"]);
+
+        for(let i=headerRowIdx+1; i<rows.length; i++){
+          const row = rows[i];
+          if(!row || row.length===0) continue;
+
+          const name = nameIdx!==-1 ? String(row[nameIdx]||"").trim() : "";
+          if(!name) continue;
+
+          const town = townIdx!==-1 ? (String(row[townIdx]||"").trim() || sheetName) : sheetName;
+          const code = codeIdx!==-1 ? String(row[codeIdx]||"").trim() : "";
+          const scheduled = n(row[schIdx]);
+          const nonScheduled = n(row[nsIdx]);
+          const productive = n(row[prodIdx]);
+          let bp = n(row[bpIdx]);
+          if(bp<=1) bp = bp*100; // Excel-এ fraction (0.85) হলে percentage (85) এ রূপান্তর
+
+          combined.push({town, code, name, scheduled, nonScheduled, productive, bp});
+        }
+      });
     }
-    const normalized=rows.map(normalizeRow).filter(r=>r.name&&r.name!=="Unknown");
-    if(!normalized.length)throw new Error("No recognizable rows");
-    data=normalized; localStorage.setItem("dashboardData",JSON.stringify(data)); render();
+
+    if(!combined.length)throw new Error("No recognizable rows");
+    data=combined; localStorage.setItem("dashboardData",JSON.stringify(data)); render();
     alert(`Loaded ${data.length} salesman records.`);
   }catch(err){alert("Could not read this file. Please check the Excel headers and try again.");console.error(err)}
 });
