@@ -10,43 +10,72 @@
 </head>
 <body>
 
-    <div class="bg-orb orb-1"></div>
-    <div class="bg-orb orb-2"></div>
-    <div class="bg-orb orb-3"></div>
+    <span class="shape shape-1"></span>
+    <span class="shape shape-2"></span>
+    <span class="shape shape-3"></span>
+    <span class="shape shape-4"></span>
 
-    <div class="login-wrap">
+    <div class="login-card">
 
-        <div class="brand-side">
-            <div class="brand-mark">U</div>
-            <h1>Unilever</h1>
-            <p>Bill Productivity Report — Jhenaidah Territory</p>
+        <div class="illustration">
 
-            <div class="brand-stats">
-                <div>
-                    <strong>Field Sales</strong>
-                    <span>Real-time visibility</span>
-                </div>
-                <div>
-                    <strong>Town-wise</strong>
-                    <span>Performance tracking</span>
-                </div>
-            </div>
+            <svg viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
+
+                <!-- soft ground shadow -->
+                <ellipse cx="130" cy="235" rx="70" ry="12" fill="#0b0f2b" opacity="0.10"/>
+
+                <!-- floating dashboard card behind figure -->
+                <g class="float-slow">
+                    <rect x="30" y="40" width="120" height="80" rx="14" fill="#ffffff"/>
+                    <rect x="42" y="54" width="60" height="8" rx="4" fill="#c9d0f7"/>
+                    <rect x="42" y="70" width="90" height="6" rx="3" fill="#e4e8fb"/>
+                    <rect x="42" y="82" width="80" height="6" rx="3" fill="#e4e8fb"/>
+                    <rect x="42" y="94" width="40" height="14" rx="7" fill="#7c6cf0"/>
+                </g>
+
+                <!-- character: simple friendly figure -->
+                <g class="float-fig">
+                    <circle cx="150" cy="120" r="26" fill="#ffd58a"/>
+                    <path d="M124 118 q26 -18 52 0" stroke="#3a2c1a" stroke-width="4" fill="none" stroke-linecap="round"/>
+                    <rect x="130" y="150" width="40" height="70" rx="18" fill="#7c6cf0"/>
+                    <rect x="118" y="160" width="16" height="46" rx="8" fill="#6a59e0"/>
+                    <rect x="166" y="160" width="16" height="46" rx="8" fill="#6a59e0"/>
+                    <circle cx="150" cy="108" r="4" fill="#3a2c1a"/>
+                    <circle cx="166" cy="108" r="4" fill="#3a2c1a"/>
+                </g>
+
+                <!-- small orbiting dot accents -->
+                <circle class="orbit-dot dot-a" cx="60" cy="150" r="6" fill="#ff9fbb"/>
+                <circle class="orbit-dot dot-b" cx="205" cy="70" r="5" fill="#7ce0d3"/>
+                <circle class="orbit-dot dot-c" cx="200" cy="180" r="7" fill="#ffd58a"/>
+
+            </svg>
+
+            <h2>Bill Productivity Report</h2>
+            <p>Jhenaidah Territory — নিরাপদ Login</p>
+
         </div>
 
-        <div class="login-box">
+        <div class="form-side">
 
-            <h2>Sign in</h2>
-            <p class="login-sub">আপনার Username ও Password দিয়ে লগইন করুন</p>
+            <h1>Sign in</h1>
+            <p class="sub">আপনার Username ও Password দিন</p>
 
             <form id="loginForm">
 
-                <label for="username">Username</label>
-                <input type="text" id="username" placeholder="Username" autocomplete="username" required>
+                <div class="field">
+                    <input type="text" id="username" placeholder=" " autocomplete="username" required>
+                    <label for="username">Username</label>
+                </div>
 
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Password" autocomplete="current-password" required>
+                <div class="field">
+                    <input type="password" id="password" placeholder=" " autocomplete="current-password" required>
+                    <label for="password">Password</label>
+                </div>
 
-                <button type="submit">Log In</button>
+                <button type="submit">
+                    <span>Log In</span>
+                </button>
 
             </form>
 
