@@ -16,39 +16,51 @@
 
     <div class="login-stage">
 
-        <!-- Character standing beside / reaching toward the form -->
-        <svg class="character" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+        <!-- Character: standing, arms crossed, beside the card -->
+        <svg class="character" viewBox="0 0 220 340" xmlns="http://www.w3.org/2000/svg">
 
-            <ellipse cx="95" cy="285" rx="55" ry="10" fill="#0b0f2b" opacity="0.10"/>
+            <ellipse cx="105" cy="322" rx="60" ry="11" fill="#0b0f2b" opacity="0.12"/>
 
-            <!-- legs -->
-            <rect x="70" y="210" width="18" height="65" rx="9" fill="#3b3560"/>
-            <rect x="100" y="210" width="18" height="65" rx="9" fill="#3b3560"/>
-            <rect x="66" y="268" width="26" height="12" rx="6" fill="#1c1d2e"/>
-            <rect x="96" y="268" width="26" height="12" rx="6" fill="#1c1d2e"/>
+            <!-- back leg (slightly offset for depth) -->
+            <rect x="118" y="228" width="26" height="78" rx="13" fill="#25315e"/>
+            <rect x="112" y="298" width="38" height="18" rx="9" fill="#ffffff"/>
+            <rect x="112" y="308" width="38" height="8" rx="4" fill="#ff9fbb"/>
 
-            <!-- body -->
-            <rect x="58" y="140" width="72" height="80" rx="26" fill="#7c6cf0"/>
+            <!-- front leg -->
+            <rect x="70" y="228" width="28" height="82" rx="14" fill="#33407a"/>
+            <rect x="62" y="300" width="40" height="20" rx="10" fill="#ffffff"/>
+            <rect x="62" y="311" width="40" height="9" rx="4.5" fill="#7ce0d3"/>
 
-            <!-- reaching arm (toward the form on the right) -->
-            <g class="reach-arm">
-                <rect x="118" y="150" width="60" height="16" rx="8" fill="#7c6cf0"/>
-                <circle cx="182" cy="158" r="11" fill="#ffd58a"/>
-            </g>
+            <!-- torso / shirt -->
+            <path d="M60 150 q45 -26 90 0 l6 90 q-51 24 -102 0 z" fill="#ff9d3d"/>
 
-            <!-- other arm resting -->
-            <rect x="48" y="155" width="16" height="46" rx="8" fill="#6a59e0"/>
+            <!-- crossed arms -->
+            <path d="M64 168 q40 34 84 4 l4 20 q-46 34 -92 -4 z" fill="#e8862a"/>
+            <circle cx="146" cy="178" r="11" fill="#ffd58a"/>
+            <circle cx="66" cy="188" r="11" fill="#ffd58a"/>
+
+            <!-- neck -->
+            <rect x="94" y="96" width="22" height="20" rx="8" fill="#ffd58a"/>
 
             <!-- head -->
-            <circle cx="94" cy="112" r="34" fill="#ffd58a"/>
-            <path d="M64 108 q30 -24 60 0" stroke="#3a2c1a" stroke-width="5" fill="none" stroke-linecap="round"/>
-            <circle cx="84" cy="112" r="4.5" fill="#3a2c1a"/>
-            <circle cx="106" cy="112" r="4.5" fill="#3a2c1a"/>
-            <path d="M86 126 q8 6 16 0" stroke="#3a2c1a" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <circle cx="105" cy="76" r="36" fill="#ffd58a"/>
+
+            <!-- hair -->
+            <path d="M69 70 q4 -42 36 -42 q36 0 38 38 q-8 -10 -20 -10 q4 10 -2 16 q-4 -12 -16 -12 q2 8 -4 12 q-2 -8 -10 -8 q0 8 -8 10 q-8 -2 -14 -4 z" fill="#2c2340"/>
+
+            <!-- face -->
+            <circle cx="94" cy="78" r="4.2" fill="#2c2340"/>
+            <circle cx="118" cy="78" r="4.2" fill="#2c2340"/>
+            <path d="M93 92 q13 9 26 0" stroke="#8a4a1e" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M84 66 q8 -6 16 0" stroke="#2c2340" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M110 66 q8 -6 16 0" stroke="#2c2340" stroke-width="3" fill="none" stroke-linecap="round"/>
 
         </svg>
 
         <div class="login-card">
+
+            <h1>Login</h1>
+            <p class="sub">আপনার একাউন্টে প্রবেশ করুন</p>
 
             <form id="loginForm">
 
