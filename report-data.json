@@ -2,741 +2,667 @@
   {
     "town": "Kaliganj",
     "code": "434488",
-    "salesman": "MD. ATIK HASAN AION",
+    "name": "MD. ATIK HASAN AION",
     "scheduled": 705,
     "nonScheduled": 0,
-    "totalOutlets": 705,
     "productive": 596,
-    "bp": 0.8453900709219858
+    "bp": 84.53900709219859
   },
   {
     "town": "Kaliganj",
     "code": "417097",
-    "salesman": "GOLAM BARI",
+    "name": "GOLAM BARI",
     "scheduled": 753,
     "nonScheduled": 1,
-    "totalOutlets": 754,
     "productive": 643,
-    "bp": 0.8527851458885941
+    "bp": 85.27851458885941
   },
   {
     "town": "Kaliganj",
     "code": "410285",
-    "salesman": "MD SHIMUL REZA",
+    "name": "MD SHIMUL REZA",
     "scheduled": 790,
     "nonScheduled": 0,
-    "totalOutlets": 790,
     "productive": 678,
-    "bp": 0.8582278481012658
+    "bp": 85.82278481012658
   },
   {
     "town": "Kaliganj",
     "code": "333580",
-    "salesman": "AZMUL HOSSAIN",
+    "name": "AZMUL HOSSAIN",
     "scheduled": 743,
     "nonScheduled": 4,
-    "totalOutlets": 747,
     "productive": 653,
-    "bp": 0.8741633199464525
+    "bp": 87.41633199464525
   },
   {
     "town": "Kaliganj",
     "code": "436314",
-    "salesman": "MD ROKEY HOSSAN",
+    "name": "MD ROKEY HOSSAN",
     "scheduled": 786,
     "nonScheduled": 0,
-    "totalOutlets": 786,
     "productive": 689,
-    "bp": 0.8765903307888041
+    "bp": 87.65903307888041
   },
   {
     "town": "Kaliganj",
     "code": "334905",
-    "salesman": "RIAZ HOSSEN",
+    "name": "RIAZ HOSSEN",
     "scheduled": 691,
     "nonScheduled": 2,
-    "totalOutlets": 693,
     "productive": 609,
-    "bp": 0.8787878787878788
+    "bp": 87.87878787878788
   },
   {
     "town": "Kaliganj",
     "code": "420775",
-    "salesman": "NIL KUMAR MALI",
+    "name": "NIL KUMAR MALI",
     "scheduled": 791,
     "nonScheduled": 0,
-    "totalOutlets": 791,
     "productive": 697,
-    "bp": 0.8811630847029077
+    "bp": 88.11630847029078
   },
   {
     "town": "Kaliganj",
     "code": "410261",
-    "salesman": "SOUMITRA KANJILAL",
+    "name": "SOUMITRA KANJILAL",
     "scheduled": 755,
     "nonScheduled": 0,
-    "totalOutlets": 755,
     "productive": 666,
-    "bp": 0.8821192052980132
+    "bp": 88.21192052980132
   },
   {
     "town": "Kaliganj",
     "code": "410284",
-    "salesman": "MANTU ISLAM",
+    "name": "MANTU ISLAM",
     "scheduled": 742,
     "nonScheduled": 14,
-    "totalOutlets": 756,
     "productive": 667,
-    "bp": 0.8822751322751323
+    "bp": 88.22751322751323
   },
   {
     "town": "Kaliganj",
     "code": "336636",
-    "salesman": "MD RUBEL HOSSAIN",
+    "name": "MD RUBEL HOSSAIN",
     "scheduled": 730,
     "nonScheduled": 2,
-    "totalOutlets": 732,
     "productive": 646,
-    "bp": 0.8825136612021858
+    "bp": 88.25136612021858
   },
   {
     "town": "Kaliganj",
     "code": "410263",
-    "salesman": "PRONAB KUMER",
+    "name": "PRONAB KUMER",
     "scheduled": 705,
     "nonScheduled": 3,
-    "totalOutlets": 708,
     "productive": 627,
-    "bp": 0.885593220338983
+    "bp": 88.5593220338983
   },
   {
     "town": "Kaliganj",
     "code": "433128",
-    "salesman": "SAGOR KUMAR ADHIKARI",
+    "name": "SAGOR KUMAR ADHIKARI",
     "scheduled": 735,
     "nonScheduled": 12,
-    "totalOutlets": 747,
     "productive": 664,
-    "bp": 0.8888888888888888
+    "bp": 88.88888888888889
   },
   {
     "town": "Kaliganj",
     "code": "333591",
-    "salesman": "MD. AMIRUL ISLAM",
+    "name": "MD. AMIRUL ISLAM",
     "scheduled": 654,
     "nonScheduled": 6,
-    "totalOutlets": 660,
     "productive": 587,
-    "bp": 0.8893939393939394
+    "bp": 88.93939393939394
   },
   {
     "town": "Kaliganj",
     "code": "410265",
-    "salesman": "BIPLOB GOSH",
+    "name": "BIPLOB GOSH",
     "scheduled": 752,
     "nonScheduled": 1,
-    "totalOutlets": 753,
     "productive": 671,
-    "bp": 0.8911022576361222
+    "bp": 89.11022576361222
   },
   {
     "town": "Kaliganj",
     "code": "433691",
-    "salesman": "PALLOB KUMAR",
+    "name": "PALLOB KUMAR",
     "scheduled": 780,
     "nonScheduled": 5,
-    "totalOutlets": 785,
     "productive": 702,
-    "bp": 0.8942675159235669
+    "bp": 89.4267515923567
   },
   {
     "town": "Kaliganj",
     "code": "421646",
-    "salesman": "MD BABLUR RAHMAN",
+    "name": "MD BABLUR RAHMAN",
     "scheduled": 786,
     "nonScheduled": 2,
-    "totalOutlets": 788,
     "productive": 705,
-    "bp": 0.8946700507614214
+    "bp": 89.46700507614213
   },
   {
     "town": "Kaliganj",
     "code": "410268",
-    "salesman": "MD SHIFUR RAHMAN",
+    "name": "MD SHIFUR RAHMAN",
     "scheduled": 787,
     "nonScheduled": 31,
-    "totalOutlets": 818,
     "productive": 740,
-    "bp": 0.9046454767726161
+    "bp": 90.4645476772616
   },
   {
     "town": "Kaliganj",
     "code": "410262",
-    "salesman": "MD ZAHIDUL ISLAM",
+    "name": "MD ZAHIDUL ISLAM",
     "scheduled": 743,
     "nonScheduled": 5,
-    "totalOutlets": 748,
     "productive": 683,
-    "bp": 0.9131016042780749
+    "bp": 91.31016042780749
   },
   {
     "town": "Kaliganj",
     "code": "410272",
-    "salesman": "ARABINDA SAHA",
+    "name": "ARABINDA SAHA",
     "scheduled": 730,
     "nonScheduled": 0,
-    "totalOutlets": 730,
     "productive": 672,
-    "bp": 0.9205479452054794
+    "bp": 92.05479452054794
   },
   {
     "town": "Kaliganj",
     "code": "434490",
-    "salesman": "TONMOY HASAN MUNNA",
+    "name": "TONMOY HASAN MUNNA",
     "scheduled": 749,
     "nonScheduled": 1,
-    "totalOutlets": 750,
     "productive": 691,
-    "bp": 0.9213333333333333
+    "bp": 92.13333333333334
   },
   {
     "town": "Kaliganj",
     "code": "328154",
-    "salesman": "TOPU KUMAR",
+    "name": "TOPU KUMAR",
     "scheduled": 720,
     "nonScheduled": 0,
-    "totalOutlets": 720,
     "productive": 672,
-    "bp": 0.9333333333333333
+    "bp": 93.33333333333333
   },
   {
     "town": "Jhenaidah",
     "code": "412193",
-    "salesman": "Mithun Kumar",
+    "name": "Mithun Kumar",
     "scheduled": 640,
     "nonScheduled": 32,
-    "totalOutlets": 672,
     "productive": 570,
-    "bp": 0.8482142857142857
+    "bp": 84.82142857142857
   },
   {
     "town": "Jhenaidah",
     "code": "435968",
-    "salesman": "MD EUSHUP ALI",
+    "name": "MD EUSHUP ALI",
     "scheduled": 646,
     "nonScheduled": 5,
-    "totalOutlets": 651,
     "productive": 574,
-    "bp": 0.8817204301075269
+    "bp": 88.17204301075269
   },
   {
     "town": "Jhenaidah",
     "code": "412209",
-    "salesman": "RONIT KUMAR BISWAS",
+    "name": "RONIT KUMAR BISWAS",
     "scheduled": 592,
     "nonScheduled": 3,
-    "totalOutlets": 595,
     "productive": 535,
-    "bp": 0.8991596638655462
+    "bp": 89.91596638655463
   },
   {
     "town": "Jhenaidah",
     "code": "412198",
-    "salesman": "SHOBER ODIKARI",
+    "name": "SHOBER ODIKARI",
     "scheduled": 592,
     "nonScheduled": 1,
-    "totalOutlets": 593,
     "productive": 535,
-    "bp": 0.9021922428330523
+    "bp": 90.21922428330524
   },
   {
     "town": "Jhenaidah",
     "code": "325817",
-    "salesman": "Susanto Adhikary pran",
+    "name": "Susanto Adhikary pran",
     "scheduled": 648,
     "nonScheduled": 0,
-    "totalOutlets": 648,
     "productive": 587,
-    "bp": 0.9058641975308642
+    "bp": 90.58641975308642
   },
   {
     "town": "Jhenaidah",
     "code": "106419",
-    "salesman": "SREEBASH KUMAR MALI",
+    "name": "SREEBASH KUMAR MALI",
     "scheduled": 637,
     "nonScheduled": 1,
-    "totalOutlets": 638,
     "productive": 579,
-    "bp": 0.9075235109717869
+    "bp": 90.75235109717869
   },
   {
     "town": "Jhenaidah",
     "code": "425595",
-    "salesman": "MD. BAEYZID BOSTAÐœÐ†",
+    "name": "MD. BAEYZID BOSTAÐœÐ†",
     "scheduled": 592,
     "nonScheduled": 0,
-    "totalOutlets": 592,
     "productive": 538,
-    "bp": 0.9087837837837838
+    "bp": 90.87837837837837
   },
   {
     "town": "Jhenaidah",
     "code": "325829",
-    "salesman": "MD.Ali Hossain",
+    "name": "MD.Ali Hossain",
     "scheduled": 528,
     "nonScheduled": 0,
-    "totalOutlets": 528,
     "productive": 484,
-    "bp": 0.9166666666666666
+    "bp": 91.66666666666666
   },
   {
     "town": "Jhenaidah",
     "code": "106418",
-    "salesman": "MD SHOFIQUL ISLAM",
+    "name": "MD SHOFIQUL ISLAM",
     "scheduled": 631,
     "nonScheduled": 0,
-    "totalOutlets": 631,
     "productive": 582,
-    "bp": 0.9223454833597464
+    "bp": 92.23454833597464
   },
   {
     "town": "Jhenaidah",
     "code": "336066",
-    "salesman": "MD MIRAZ HOSSEN",
+    "name": "MD MIRAZ HOSSEN",
     "scheduled": 642,
     "nonScheduled": 4,
-    "totalOutlets": 646,
     "productive": 597,
-    "bp": 0.9241486068111455
+    "bp": 92.41486068111455
   },
   {
     "town": "Jhenaidah",
     "code": "429737",
-    "salesman": "SHAHRIAR HOSEN",
+    "name": "SHAHRIAR HOSEN",
     "scheduled": 505,
     "nonScheduled": 1,
-    "totalOutlets": 506,
     "productive": 468,
-    "bp": 0.924901185770751
+    "bp": 92.4901185770751
   },
   {
     "town": "Jhenaidah",
     "code": "417790",
-    "salesman": "Md.Asaduzzaman",
+    "name": "Md.Asaduzzaman",
     "scheduled": 640,
     "nonScheduled": 1,
-    "totalOutlets": 641,
     "productive": 595,
-    "bp": 0.9282371294851794
+    "bp": 92.82371294851795
   },
   {
     "town": "Jhenaidah",
     "code": "435102",
-    "salesman": "MD.KHOKAN MIA",
+    "name": "MD.KHOKAN MIA",
     "scheduled": 636,
     "nonScheduled": 0,
-    "totalOutlets": 636,
     "productive": 591,
-    "bp": 0.9292452830188679
+    "bp": 92.9245283018868
   },
   {
     "town": "Jhenaidah",
     "code": "412233",
-    "salesman": "Md. Hasam Ali",
+    "name": "Md. Hasam Ali",
     "scheduled": 636,
     "nonScheduled": 1,
-    "totalOutlets": 637,
     "productive": 592,
-    "bp": 0.9293563579277865
+    "bp": 92.93563579277865
   },
   {
     "town": "Jhenaidah",
     "code": "324130",
-    "salesman": "MARUF HOSSAN",
+    "name": "MARUF HOSSAN",
     "scheduled": 629,
     "nonScheduled": 2,
-    "totalOutlets": 631,
     "productive": 588,
-    "bp": 0.9318541996830428
+    "bp": 93.18541996830429
   },
   {
     "town": "Jhenaidah",
     "code": "412205",
-    "salesman": "Uttom Kumer Shill (Babu)",
+    "name": "Uttom Kumer Shill (Babu)",
     "scheduled": 631,
     "nonScheduled": 2,
-    "totalOutlets": 633,
     "productive": 590,
-    "bp": 0.9320695102685624
+    "bp": 93.20695102685625
   },
   {
     "town": "Jhenaidah",
     "code": "435101",
-    "salesman": "MD HASIBUL ISLAM",
+    "name": "MD HASIBUL ISLAM",
     "scheduled": 592,
     "nonScheduled": 0,
-    "totalOutlets": 592,
     "productive": 553,
-    "bp": 0.9341216216216216
+    "bp": 93.41216216216216
   },
   {
     "town": "Jhenaidah",
     "code": "412200",
-    "salesman": "MD. JOMIR UDDIN JAMIN",
+    "name": "MD. JOMIR UDDIN JAMIN",
     "scheduled": 631,
     "nonScheduled": 0,
-    "totalOutlets": 631,
     "productive": 590,
-    "bp": 0.9350237717908082
+    "bp": 93.50237717908082
   },
   {
     "town": "Jhenaidah",
     "code": "419032",
-    "salesman": "Khandoker Salim Hossain",
+    "name": "Khandoker Salim Hossain",
     "scheduled": 629,
     "nonScheduled": 1,
-    "totalOutlets": 630,
     "productive": 591,
-    "bp": 0.9380952380952381
+    "bp": 93.80952380952381
   },
   {
     "town": "Jhenaidah",
     "code": "433776",
-    "salesman": "MD AZAD ALI",
+    "name": "MD AZAD ALI",
     "scheduled": 623,
     "nonScheduled": 2,
-    "totalOutlets": 625,
     "productive": 588,
-    "bp": 0.9408
+    "bp": 94.08
   },
   {
     "town": "Jhenaidah",
     "code": "429740",
-    "salesman": "MD.Mehedi Hasan",
+    "name": "MD.Mehedi Hasan",
     "scheduled": 547,
     "nonScheduled": 1,
-    "totalOutlets": 548,
     "productive": 523,
-    "bp": 0.9543795620437956
+    "bp": 95.43795620437956
   },
   {
     "town": "Jhenaidah",
     "code": "434567",
-    "salesman": "SREE KAZOL",
+    "name": "SREE KAZOL",
     "scheduled": 627,
     "nonScheduled": 0,
-    "totalOutlets": 627,
     "productive": 599,
-    "bp": 0.9553429027113237
+    "bp": 95.53429027113238
   },
   {
     "town": "Jhenaidah",
     "code": "428741",
-    "salesman": "ZAHIDUL ISLAM",
+    "name": "ZAHIDUL ISLAM",
     "scheduled": 583,
     "nonScheduled": 6,
-    "totalOutlets": 589,
     "productive": 563,
-    "bp": 0.9558573853989814
+    "bp": 95.58573853989813
   },
   {
     "town": "Jhenaidah",
     "code": "423917",
-    "salesman": "Tariful Islam",
+    "name": "Tariful Islam",
     "scheduled": 648,
     "nonScheduled": 2,
-    "totalOutlets": 650,
     "productive": 625,
-    "bp": 0.9615384615384616
+    "bp": 96.15384615384616
   },
   {
     "town": "Jhenaidah",
     "code": "322211",
-    "salesman": "MD.Roni Hossain",
+    "name": "MD.Roni Hossain",
     "scheduled": 608,
     "nonScheduled": 1,
-    "totalOutlets": 609,
     "productive": 588,
-    "bp": 0.9655172413793104
+    "bp": 96.55172413793103
   },
   {
     "town": "Jhenaidah",
     "code": "436232",
-    "salesman": "SOMAN MOJUMDER",
+    "name": "SOMAN MOJUMDER",
     "scheduled": 581,
     "nonScheduled": 0,
-    "totalOutlets": 581,
     "productive": 565,
-    "bp": 0.9724612736660929
+    "bp": 97.24612736660929
   },
   {
     "town": "Jhenaidah",
     "code": "422889",
-    "salesman": "MD.MOKADDES ALI",
+    "name": "MD.MOKADDES ALI",
     "scheduled": 632,
     "nonScheduled": 0,
-    "totalOutlets": 632,
     "productive": 622,
-    "bp": 0.9841772151898734
+    "bp": 98.41772151898735
   },
   {
     "town": "Magura",
     "code": "410809",
-    "salesman": "SANJIB KUMAR BISWAS",
+    "name": "SANJIB KUMAR BISWAS",
     "scheduled": 650,
     "nonScheduled": 0,
-    "totalOutlets": 650,
     "productive": 525,
-    "bp": 0.8076923076923077
+    "bp": 80.76923076923077
   },
   {
     "town": "Magura",
     "code": "410824",
-    "salesman": "DIPAK KUMAR BISWAS",
+    "name": "DIPAK KUMAR BISWAS",
     "scheduled": 592,
     "nonScheduled": 2,
-    "totalOutlets": 594,
     "productive": 492,
-    "bp": 0.8282828282828283
+    "bp": 82.82828282828282
   },
   {
     "town": "Magura",
     "code": "421626",
-    "salesman": "SUJON HOSSAIN",
+    "name": "SUJON HOSSAIN",
     "scheduled": 564,
     "nonScheduled": 3,
-    "totalOutlets": 567,
     "productive": 482,
-    "bp": 0.8500881834215167
+    "bp": 85.00881834215167
   },
   {
     "town": "Magura",
     "code": "410813",
-    "salesman": "ASHOK KUMAR BISWAS",
+    "name": "ASHOK KUMAR BISWAS",
     "scheduled": 660,
     "nonScheduled": 1,
-    "totalOutlets": 661,
     "productive": 562,
-    "bp": 0.8502269288956127
+    "bp": 85.02269288956127
   },
   {
     "town": "Magura",
     "code": "434081",
-    "salesman": "Bikash Chandra Biswas",
+    "name": "Bikash Chandra Biswas",
     "scheduled": 610,
     "nonScheduled": 0,
-    "totalOutlets": 610,
     "productive": 522,
-    "bp": 0.8557377049180328
+    "bp": 85.57377049180329
   },
   {
     "town": "Magura",
     "code": "434870",
-    "salesman": "MD.Amanot Ali",
+    "name": "MD.Amanot Ali",
     "scheduled": 587,
     "nonScheduled": 4,
-    "totalOutlets": 591,
     "productive": 506,
-    "bp": 0.856175972927242
+    "bp": 85.6175972927242
   },
   {
     "town": "Magura",
     "code": "410816",
-    "salesman": "SAMORANDRA NATH MOJUMDER",
+    "name": "SAMORANDRA NATH MOJUMDER",
     "scheduled": 657,
     "nonScheduled": 1,
-    "totalOutlets": 658,
     "productive": 567,
-    "bp": 0.8617021276595744
+    "bp": 86.17021276595744
   },
   {
     "town": "Magura",
     "code": "427631",
-    "salesman": "MD. SELIM SHEAK",
+    "name": "MD. SELIM SHEAK",
     "scheduled": 662,
     "nonScheduled": 1,
-    "totalOutlets": 663,
     "productive": 572,
-    "bp": 0.8627450980392157
+    "bp": 86.27450980392157
   },
   {
     "town": "Magura",
     "code": "410806",
-    "salesman": "NAPAL CHADRA BISWAS",
+    "name": "NAPAL CHADRA BISWAS",
     "scheduled": 583,
     "nonScheduled": 1,
-    "totalOutlets": 584,
     "productive": 504,
-    "bp": 0.863013698630137
+    "bp": 86.3013698630137
   },
   {
     "town": "Magura",
     "code": "410826",
-    "salesman": "MD. Saiful Islam",
+    "name": "MD. Saiful Islam",
     "scheduled": 659,
     "nonScheduled": 0,
-    "totalOutlets": 659,
     "productive": 569,
-    "bp": 0.8634294385432474
+    "bp": 86.34294385432474
   },
   {
     "town": "Magura",
     "code": "410827",
-    "salesman": "Md. Rafikul Islam",
+    "name": "Md. Rafikul Islam",
     "scheduled": 603,
     "nonScheduled": 3,
-    "totalOutlets": 606,
     "productive": 527,
-    "bp": 0.8696369636963697
+    "bp": 86.96369636963696
   },
   {
     "town": "Magura",
     "code": "418001",
-    "salesman": "MD.ROWSHON ALI",
+    "name": "MD.ROWSHON ALI",
     "scheduled": 652,
     "nonScheduled": 7,
-    "totalOutlets": 659,
     "productive": 584,
-    "bp": 0.8861911987860395
+    "bp": 88.61911987860395
   },
   {
     "town": "Magura",
     "code": "424626",
-    "salesman": "MD. ATIK HASAN",
+    "name": "MD. ATIK HASAN",
     "scheduled": 614,
     "nonScheduled": 0,
-    "totalOutlets": 614,
     "productive": 546,
-    "bp": 0.8892508143322475
+    "bp": 88.92508143322475
   },
   {
     "town": "Magura",
     "code": "427707",
-    "salesman": "MD. AZAD HOSSAIN-1",
+    "name": "MD. AZAD HOSSAIN-1",
     "scheduled": 547,
     "nonScheduled": 1,
-    "totalOutlets": 548,
     "productive": 490,
-    "bp": 0.8941605839416058
+    "bp": 89.41605839416059
   },
   {
     "town": "Magura",
     "code": "409241",
-    "salesman": "Khandoker Khayruzzaman (Chanchal)",
+    "name": "Khandoker Khayruzzaman (Chanchal)",
     "scheduled": 632,
     "nonScheduled": 3,
-    "totalOutlets": 635,
     "productive": 572,
-    "bp": 0.9007874015748032
+    "bp": 90.07874015748033
   },
   {
     "town": "Magura",
     "code": "410811",
-    "salesman": "MD. LAVEUJJAMAN",
+    "name": "MD. LAVEUJJAMAN",
     "scheduled": 596,
     "nonScheduled": 2,
-    "totalOutlets": 598,
     "productive": 539,
-    "bp": 0.9013377926421404
+    "bp": 90.13377926421404
   },
   {
     "town": "Magura",
     "code": "410814",
-    "salesman": "CHANCHAL KUMAR ADHIKARY",
+    "name": "CHANCHAL KUMAR ADHIKARY",
     "scheduled": 663,
     "nonScheduled": 0,
-    "totalOutlets": 663,
     "productive": 599,
-    "bp": 0.9034690799396682
+    "bp": 90.34690799396682
   },
   {
     "town": "Magura",
     "code": "433248",
-    "salesman": "MD. SANTO MIA",
+    "name": "MD. SANTO MIA",
     "scheduled": 639,
     "nonScheduled": 1,
-    "totalOutlets": 640,
     "productive": 579,
-    "bp": 0.9046875
+    "bp": 90.46875
   },
   {
     "town": "Magura",
     "code": "423930",
-    "salesman": "MD. SOHEL RANA",
+    "name": "MD. SOHEL RANA",
     "scheduled": 622,
     "nonScheduled": 1,
-    "totalOutlets": 623,
     "productive": 564,
-    "bp": 0.9052969502407705
+    "bp": 90.52969502407706
   },
   {
     "town": "Magura",
     "code": "417999",
-    "salesman": "CHITTO RANJAN BISWAS",
+    "name": "CHITTO RANJAN BISWAS",
     "scheduled": 635,
     "nonScheduled": 0,
-    "totalOutlets": 635,
     "productive": 581,
-    "bp": 0.9149606299212598
+    "bp": 91.49606299212599
   },
   {
     "town": "Magura",
     "code": "410815",
-    "salesman": "MD. SHAFIQUL ISLAM",
+    "name": "MD. SHAFIQUL ISLAM",
     "scheduled": 653,
     "nonScheduled": 1,
-    "totalOutlets": 654,
     "productive": 599,
-    "bp": 0.9159021406727829
+    "bp": 91.59021406727828
   },
   {
     "town": "Magura",
     "code": "410825",
-    "salesman": "SONKOR KUNDU",
+    "name": "SONKOR KUNDU",
     "scheduled": 642,
     "nonScheduled": 1,
-    "totalOutlets": 643,
     "productive": 597,
-    "bp": 0.9284603421461898
+    "bp": 92.84603421461898
   },
   {
     "town": "Magura",
     "code": "429517",
-    "salesman": "MD. ALI HASAN",
+    "name": "MD. ALI HASAN",
     "scheduled": 663,
     "nonScheduled": 1,
-    "totalOutlets": 664,
     "productive": 617,
-    "bp": 0.9292168674698795
+    "bp": 92.92168674698796
   },
   {
     "town": "Magura",
     "code": "418002",
-    "salesman": "RATON KUMAR DAS",
+    "name": "RATON KUMAR DAS",
     "scheduled": 592,
     "nonScheduled": 12,
-    "totalOutlets": 604,
     "productive": 568,
-    "bp": 0.9403973509933775
+    "bp": 94.03973509933775
   },
   {
     "town": "Magura",
     "code": "410808",
-    "salesman": "SUBRATO KUMAR SAHA",
+    "name": "SUBRATO KUMAR SAHA",
     "scheduled": 538,
     "nonScheduled": 0,
-    "totalOutlets": 538,
     "productive": 523,
-    "bp": 0.9721189591078067
+    "bp": 97.21189591078067
   },
   {
     "town": "Magura",
     "code": "410828",
-    "salesman": "B.M. AMIRUL ISLAM",
+    "name": "B.M. AMIRUL ISLAM",
     "scheduled": 495,
     "nonScheduled": 19,
-    "totalOutlets": 514,
     "productive": 502,
-    "bp": 0.9766536964980544
+    "bp": 97.66536964980544
   }
 ]
