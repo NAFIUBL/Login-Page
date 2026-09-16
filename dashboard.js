@@ -117,7 +117,7 @@ function showView(view){
   document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));
   document.getElementById(view+"View").classList.add("active");
   document.querySelectorAll(".nav-item").forEach(n=>n.classList.toggle("active",n.dataset.view===view));
-  const titles={dashboard:["Salesman Productivity","Jhenaidah Territory · Executive overview"],salesman:["Salesman Report","Detailed salesman performance"],town:["Town Analysis","Town-level productivity comparison"],reports:["Reports Center","Upload, export and data controls"]};
+  const titles={dashboard:["Salesman Productivity","Jhenaidah Territory · Executive overview"],salesman:["Salesman Report","Detailed salesman performance"],town:["Town Analysis","Town-level productivity comparison"]};
   set("pageTitle",titles[view][0]);set("pageSubtitle",titles[view][1]);
   document.getElementById("sidebar").classList.remove("open");document.getElementById("overlay").classList.remove("show");
 }
@@ -205,7 +205,6 @@ document.getElementById("excelFile").addEventListener("change",async e=>{
 });
 
 document.getElementById("exportBtn").onclick=exportCSV;
-document.getElementById("reportExport").onclick=exportCSV;
 document.getElementById("resetData").onclick=()=>{if(confirm("Reset dashboard and remove uploaded data?")){localStorage.removeItem("dashboardData");data=[];render();}};
 function exportCSV(){
   if(!data.length)return alert("No data to export.");
@@ -236,15 +235,13 @@ if (role === "viewer") {
 
   // Viewer রা Upload/Reset করতে পারবে না
   document.getElementById("uploadWrap")?.style.setProperty("display","none");
-  document.getElementById("uploadReportCard")?.style.setProperty("display","none");
-  document.getElementById("resetReportCard")?.style.setProperty("display","none");
+  document.getElementById("resetData")?.style.setProperty("display","none");
   document.getElementById("viewerBanner")?.style.setProperty("display","block");
 
 } else {
 
   // Uploader রা Website Update বাটন দেখবে
   document.getElementById("exportJSONBtn")?.style.setProperty("display","inline-flex");
-  document.getElementById("jsonReportCard")?.style.setProperty("display","block");
 
 }
 
@@ -264,7 +261,6 @@ function exportJSON(){
 }
 
 document.getElementById("exportJSONBtn")?.addEventListener("click", exportJSON);
-document.getElementById("reportExportJSON")?.addEventListener("click", exportJSON);
 
 // ==========================================
 // INITIAL DATA LOAD
