@@ -1,668 +1,668 @@
 [
   {
     "town": "Kaliganj",
-    "code": "434488",
-    "name": "MD. ATIK HASAN AION",
-    "scheduled": 705,
-    "nonScheduled": 0,
-    "productive": 596,
-    "bp": 84.53900709219859
-  },
-  {
-    "town": "Kaliganj",
-    "code": "417097",
-    "name": "GOLAM BARI",
-    "scheduled": 753,
+    "code": "410261",
+    "name": "SOUMITRA KANJILAL",
+    "scheduled": 452,
     "nonScheduled": 1,
-    "productive": 643,
-    "bp": 85.27851458885941
-  },
-  {
-    "town": "Kaliganj",
-    "code": "410285",
-    "name": "MD SHIMUL REZA",
-    "scheduled": 790,
-    "nonScheduled": 0,
-    "productive": 678,
-    "bp": 85.82278481012658
-  },
-  {
-    "town": "Kaliganj",
-    "code": "333580",
-    "name": "AZMUL HOSSAIN",
-    "scheduled": 743,
-    "nonScheduled": 4,
-    "productive": 653,
-    "bp": 87.41633199464525
+    "productive": 366,
+    "bp": 80.79470198675497
   },
   {
     "town": "Kaliganj",
     "code": "436314",
     "name": "MD ROKEY HOSSAN",
-    "scheduled": 786,
-    "nonScheduled": 0,
-    "productive": 689,
-    "bp": 87.65903307888041
-  },
-  {
-    "town": "Kaliganj",
-    "code": "334905",
-    "name": "RIAZ HOSSEN",
-    "scheduled": 691,
-    "nonScheduled": 2,
-    "productive": 609,
-    "bp": 87.87878787878788
-  },
-  {
-    "town": "Kaliganj",
-    "code": "420775",
-    "name": "NIL KUMAR MALI",
-    "scheduled": 791,
-    "nonScheduled": 0,
-    "productive": 697,
-    "bp": 88.11630847029078
-  },
-  {
-    "town": "Kaliganj",
-    "code": "410261",
-    "name": "SOUMITRA KANJILAL",
-    "scheduled": 755,
-    "nonScheduled": 0,
-    "productive": 666,
-    "bp": 88.21192052980132
-  },
-  {
-    "town": "Kaliganj",
-    "code": "410284",
-    "name": "MANTU ISLAM",
-    "scheduled": 742,
-    "nonScheduled": 14,
-    "productive": 667,
-    "bp": 88.22751322751323
-  },
-  {
-    "town": "Kaliganj",
-    "code": "336636",
-    "name": "MD RUBEL HOSSAIN",
-    "scheduled": 730,
-    "nonScheduled": 2,
-    "productive": 646,
-    "bp": 88.25136612021858
-  },
-  {
-    "town": "Kaliganj",
-    "code": "410263",
-    "name": "PRONAB KUMER",
-    "scheduled": 705,
+    "scheduled": 470,
     "nonScheduled": 3,
-    "productive": 627,
-    "bp": 88.5593220338983
-  },
-  {
-    "town": "Kaliganj",
-    "code": "433128",
-    "name": "SAGOR KUMAR ADHIKARI",
-    "scheduled": 735,
-    "nonScheduled": 12,
-    "productive": 664,
-    "bp": 88.88888888888889
-  },
-  {
-    "town": "Kaliganj",
-    "code": "333591",
-    "name": "MD. AMIRUL ISLAM",
-    "scheduled": 654,
-    "nonScheduled": 6,
-    "productive": 587,
-    "bp": 88.93939393939394
-  },
-  {
-    "town": "Kaliganj",
-    "code": "410265",
-    "name": "BIPLOB GOSH",
-    "scheduled": 752,
-    "nonScheduled": 1,
-    "productive": 671,
-    "bp": 89.11022576361222
-  },
-  {
-    "town": "Kaliganj",
-    "code": "433691",
-    "name": "PALLOB KUMAR",
-    "scheduled": 780,
-    "nonScheduled": 5,
-    "productive": 702,
-    "bp": 89.4267515923567
-  },
-  {
-    "town": "Kaliganj",
-    "code": "421646",
-    "name": "MD BABLUR RAHMAN",
-    "scheduled": 786,
-    "nonScheduled": 2,
-    "productive": 705,
-    "bp": 89.46700507614213
-  },
-  {
-    "town": "Kaliganj",
-    "code": "410268",
-    "name": "MD SHIFUR RAHMAN",
-    "scheduled": 787,
-    "nonScheduled": 31,
-    "productive": 740,
-    "bp": 90.4645476772616
-  },
-  {
-    "town": "Kaliganj",
-    "code": "410262",
-    "name": "MD ZAHIDUL ISLAM",
-    "scheduled": 743,
-    "nonScheduled": 5,
-    "productive": 683,
-    "bp": 91.31016042780749
-  },
-  {
-    "town": "Kaliganj",
-    "code": "410272",
-    "name": "ARABINDA SAHA",
-    "scheduled": 730,
-    "nonScheduled": 0,
-    "productive": 672,
-    "bp": 92.05479452054794
-  },
-  {
-    "town": "Kaliganj",
-    "code": "434490",
-    "name": "TONMOY HASAN MUNNA",
-    "scheduled": 749,
-    "nonScheduled": 1,
-    "productive": 691,
-    "bp": 92.13333333333334
+    "productive": 384,
+    "bp": 81.18393234672304
   },
   {
     "town": "Kaliganj",
     "code": "328154",
     "name": "TOPU KUMAR",
-    "scheduled": 720,
+    "scheduled": 432,
     "nonScheduled": 0,
-    "productive": 672,
-    "bp": 93.33333333333333
+    "productive": 370,
+    "bp": 85.64814814814815
   },
   {
-    "town": "Jhenaidah",
-    "code": "412193",
-    "name": "Mithun Kumar",
-    "scheduled": 640,
-    "nonScheduled": 32,
-    "productive": 570,
-    "bp": 84.82142857142857
+    "town": "Kaliganj",
+    "code": "410285",
+    "name": "MD SHIMUL REZA",
+    "scheduled": 474,
+    "nonScheduled": 0,
+    "productive": 409,
+    "bp": 86.28691983122363
   },
   {
-    "town": "Jhenaidah",
-    "code": "435968",
-    "name": "MD EUSHUP ALI",
-    "scheduled": 646,
+    "town": "Kaliganj",
+    "code": "417097",
+    "name": "GOLAM BARI",
+    "scheduled": 452,
+    "nonScheduled": 11,
+    "productive": 401,
+    "bp": 86.60907127429806
+  },
+  {
+    "town": "Kaliganj",
+    "code": "433128",
+    "name": "SAGOR KUMAR ADHIKARI",
+    "scheduled": 444,
+    "nonScheduled": 4,
+    "productive": 392,
+    "bp": 87.5
+  },
+  {
+    "town": "Kaliganj",
+    "code": "420775",
+    "name": "NIL KUMAR MALI",
+    "scheduled": 474,
+    "nonScheduled": 0,
+    "productive": 415,
+    "bp": 87.55274261603375
+  },
+  {
+    "town": "Kaliganj",
+    "code": "410268",
+    "name": "MD SHIFUR RAHMAN",
+    "scheduled": 472,
+    "nonScheduled": 0,
+    "productive": 418,
+    "bp": 88.5593220338983
+  },
+  {
+    "town": "Kaliganj",
+    "code": "410284",
+    "name": "MANTU ISLAM",
+    "scheduled": 444,
+    "nonScheduled": 6,
+    "productive": 399,
+    "bp": 88.66666666666667
+  },
+  {
+    "town": "Kaliganj",
+    "code": "410263",
+    "name": "PRONAB KUMER",
+    "scheduled": 422,
+    "nonScheduled": 1,
+    "productive": 376,
+    "bp": 88.88888888888889
+  },
+  {
+    "town": "Kaliganj",
+    "code": "434488",
+    "name": "MD. ATIK HASAN AION",
+    "scheduled": 424,
+    "nonScheduled": 2,
+    "productive": 384,
+    "bp": 90.14084507042254
+  },
+  {
+    "town": "Kaliganj",
+    "code": "410265",
+    "name": "BIPLOB GOSH",
+    "scheduled": 452,
+    "nonScheduled": 0,
+    "productive": 409,
+    "bp": 90.48672566371681
+  },
+  {
+    "town": "Kaliganj",
+    "code": "333580",
+    "name": "AZMUL HOSSAIN",
+    "scheduled": 448,
     "nonScheduled": 5,
-    "productive": 574,
-    "bp": 88.17204301075269
+    "productive": 410,
+    "bp": 90.50772626931567
+  },
+  {
+    "town": "Kaliganj",
+    "code": "434490",
+    "name": "TONMOY HASAN MUNNA",
+    "scheduled": 450,
+    "nonScheduled": 2,
+    "productive": 410,
+    "bp": 90.7079646017699
+  },
+  {
+    "town": "Kaliganj",
+    "code": "433691",
+    "name": "PALLOB KUMAR",
+    "scheduled": 470,
+    "nonScheduled": 15,
+    "productive": 444,
+    "bp": 91.54639175257732
+  },
+  {
+    "town": "Kaliganj",
+    "code": "333591",
+    "name": "MD. AMIRUL ISLAM",
+    "scheduled": 392,
+    "nonScheduled": 2,
+    "productive": 363,
+    "bp": 92.13197969543148
+  },
+  {
+    "town": "Kaliganj",
+    "code": "410272",
+    "name": "ARABINDA SAHA",
+    "scheduled": 438,
+    "nonScheduled": 1,
+    "productive": 410,
+    "bp": 93.39407744874715
+  },
+  {
+    "town": "Kaliganj",
+    "code": "106561",
+    "name": "ASRAFUL ISLAM",
+    "scheduled": 438,
+    "nonScheduled": 0,
+    "productive": 410,
+    "bp": 93.60730593607306
+  },
+  {
+    "town": "Kaliganj",
+    "code": "410262",
+    "name": "MD ZAHIDUL ISLAM",
+    "scheduled": 444,
+    "nonScheduled": 1,
+    "productive": 420,
+    "bp": 94.3820224719101
+  },
+  {
+    "town": "Kaliganj",
+    "code": "334905",
+    "name": "RIAZ HOSSEN",
+    "scheduled": 418,
+    "nonScheduled": 5,
+    "productive": 401,
+    "bp": 94.79905437352247
+  },
+  {
+    "town": "Kaliganj",
+    "code": "421646",
+    "name": "MD BABLUR RAHMAN",
+    "scheduled": 472,
+    "nonScheduled": 4,
+    "productive": 452,
+    "bp": 94.9579831932773
   },
   {
     "town": "Jhenaidah",
-    "code": "412209",
-    "name": "RONIT KUMAR BISWAS",
-    "scheduled": 592,
+    "code": "430337",
+    "name": "MD. SHUJAD HOSSAIN",
+    "scheduled": 435,
     "nonScheduled": 3,
-    "productive": 535,
-    "bp": 89.91596638655463
+    "productive": 334,
+    "bp": 76.25570776255708
   },
   {
     "town": "Jhenaidah",
-    "code": "412198",
-    "name": "SHOBER ODIKARI",
-    "scheduled": 592,
-    "nonScheduled": 1,
-    "productive": 535,
-    "bp": 90.21922428330524
-  },
-  {
-    "town": "Jhenaidah",
-    "code": "325817",
-    "name": "Susanto Adhikary pran",
-    "scheduled": 648,
-    "nonScheduled": 0,
-    "productive": 587,
-    "bp": 90.58641975308642
-  },
-  {
-    "town": "Jhenaidah",
-    "code": "106419",
-    "name": "SREEBASH KUMAR MALI",
-    "scheduled": 637,
-    "nonScheduled": 1,
-    "productive": 579,
-    "bp": 90.75235109717869
-  },
-  {
-    "town": "Jhenaidah",
-    "code": "425595",
-    "name": "MD. BAEYZID BOSTAÐœÐ†",
-    "scheduled": 592,
-    "nonScheduled": 0,
-    "productive": 538,
-    "bp": 90.87837837837837
+    "code": "335949",
+    "name": "MD. Rokonuzzaman Rabbi",
+    "scheduled": 480,
+    "nonScheduled": 41,
+    "productive": 437,
+    "bp": 83.87715930902111
   },
   {
     "town": "Jhenaidah",
     "code": "325829",
-    "name": "MD.Ali Hossain",
-    "scheduled": 528,
-    "nonScheduled": 0,
-    "productive": 484,
-    "bp": 91.66666666666666
-  },
-  {
-    "town": "Jhenaidah",
-    "code": "106418",
-    "name": "MD SHOFIQUL ISLAM",
-    "scheduled": 631,
-    "nonScheduled": 0,
-    "productive": 582,
-    "bp": 92.23454833597464
-  },
-  {
-    "town": "Jhenaidah",
-    "code": "336066",
-    "name": "MD MIRAZ HOSSEN",
-    "scheduled": 642,
-    "nonScheduled": 4,
-    "productive": 597,
-    "bp": 92.41486068111455
-  },
-  {
-    "town": "Jhenaidah",
-    "code": "429737",
-    "name": "SHAHRIAR HOSEN",
-    "scheduled": 505,
-    "nonScheduled": 1,
-    "productive": 468,
-    "bp": 92.4901185770751
-  },
-  {
-    "town": "Jhenaidah",
-    "code": "417790",
-    "name": "Md.Asaduzzaman",
-    "scheduled": 640,
-    "nonScheduled": 1,
-    "productive": 595,
-    "bp": 92.82371294851795
-  },
-  {
-    "town": "Jhenaidah",
-    "code": "435102",
-    "name": "MD.KHOKAN MIA",
-    "scheduled": 636,
-    "nonScheduled": 0,
-    "productive": 591,
-    "bp": 92.9245283018868
-  },
-  {
-    "town": "Jhenaidah",
-    "code": "412233",
-    "name": "Md. Hasam Ali",
-    "scheduled": 636,
-    "nonScheduled": 1,
-    "productive": 592,
-    "bp": 92.93563579277865
-  },
-  {
-    "town": "Jhenaidah",
-    "code": "324130",
-    "name": "MARUF HOSSAN",
-    "scheduled": 629,
+    "name": "MD.ALI HOSSAIN",
+    "scheduled": 396,
     "nonScheduled": 2,
-    "productive": 588,
-    "bp": 93.18541996830429
+    "productive": 340,
+    "bp": 85.42713567839196
   },
   {
     "town": "Jhenaidah",
-    "code": "412205",
-    "name": "Uttom Kumer Shill (Babu)",
-    "scheduled": 631,
-    "nonScheduled": 2,
-    "productive": 590,
-    "bp": 93.20695102685625
+    "code": "338015",
+    "name": "MD SOJIB HASAN",
+    "scheduled": 467,
+    "nonScheduled": 12,
+    "productive": 415,
+    "bp": 86.63883089770354
   },
   {
     "town": "Jhenaidah",
-    "code": "435101",
-    "name": "MD HASIBUL ISLAM",
-    "scheduled": 592,
+    "code": "107001",
+    "name": "MD ARIFUL ISLAM",
+    "scheduled": 474,
     "nonScheduled": 0,
-    "productive": 553,
-    "bp": 93.41216216216216
-  },
-  {
-    "town": "Jhenaidah",
-    "code": "412200",
-    "name": "MD. JOMIR UDDIN JAMIN",
-    "scheduled": 631,
-    "nonScheduled": 0,
-    "productive": 590,
-    "bp": 93.50237717908082
-  },
-  {
-    "town": "Jhenaidah",
-    "code": "419032",
-    "name": "Khandoker Salim Hossain",
-    "scheduled": 629,
-    "nonScheduled": 1,
-    "productive": 591,
-    "bp": 93.80952380952381
+    "productive": 420,
+    "bp": 88.60759493670885
   },
   {
     "town": "Jhenaidah",
     "code": "433776",
     "name": "MD AZAD ALI",
-    "scheduled": 623,
-    "nonScheduled": 2,
-    "productive": 588,
-    "bp": 94.08
-  },
-  {
-    "town": "Jhenaidah",
-    "code": "429740",
-    "name": "MD.Mehedi Hasan",
-    "scheduled": 547,
-    "nonScheduled": 1,
-    "productive": 523,
-    "bp": 95.43795620437956
-  },
-  {
-    "town": "Jhenaidah",
-    "code": "434567",
-    "name": "SREE KAZOL",
-    "scheduled": 627,
+    "scheduled": 468,
     "nonScheduled": 0,
-    "productive": 599,
-    "bp": 95.53429027113238
+    "productive": 417,
+    "bp": 89.1025641025641
+  },
+  {
+    "town": "Jhenaidah",
+    "code": "106419",
+    "name": "SREEBASH KUMAR MALI",
+    "scheduled": 478,
+    "nonScheduled": 0,
+    "productive": 427,
+    "bp": 89.3305439330544
+  },
+  {
+    "town": "Jhenaidah",
+    "code": "324130",
+    "name": "MARUF HOSSAN",
+    "scheduled": 468,
+    "nonScheduled": 0,
+    "productive": 419,
+    "bp": 89.52991452991454
+  },
+  {
+    "town": "Jhenaidah",
+    "code": "435968",
+    "name": "MD EUSHUP ALI",
+    "scheduled": 484,
+    "nonScheduled": 0,
+    "productive": 434,
+    "bp": 89.6694214876033
+  },
+  {
+    "town": "Jhenaidah",
+    "code": "412205",
+    "name": "Uttom Kumer Shill (Babu)",
+    "scheduled": 474,
+    "nonScheduled": 0,
+    "productive": 428,
+    "bp": 90.29535864978902
+  },
+  {
+    "town": "Jhenaidah",
+    "code": "412233",
+    "name": "Md. Hasam Ali",
+    "scheduled": 474,
+    "nonScheduled": 0,
+    "productive": 435,
+    "bp": 91.77215189873418
+  },
+  {
+    "town": "Jhenaidah",
+    "code": "412209",
+    "name": "RONJIT KUMAR BISWAS",
+    "scheduled": 444,
+    "nonScheduled": 13,
+    "productive": 426,
+    "bp": 93.21663019693655
+  },
+  {
+    "town": "Jhenaidah",
+    "code": "325817",
+    "name": "Susanto Adhikary pran",
+    "scheduled": 486,
+    "nonScheduled": 0,
+    "productive": 454,
+    "bp": 93.4156378600823
+  },
+  {
+    "town": "Jhenaidah",
+    "code": "425595",
+    "name": "MD. BAEYZID BOSTAÐœÐ†",
+    "scheduled": 440,
+    "nonScheduled": 0,
+    "productive": 412,
+    "bp": 93.63636363636364
   },
   {
     "town": "Jhenaidah",
     "code": "428741",
-    "name": "ZAHIDUL ISLAM",
-    "scheduled": 583,
-    "nonScheduled": 6,
-    "productive": 563,
-    "bp": 95.58573853989813
+    "name": "Zahidul Islam",
+    "scheduled": 440,
+    "nonScheduled": 2,
+    "productive": 416,
+    "bp": 94.11764705882352
+  },
+  {
+    "town": "Jhenaidah",
+    "code": "336066",
+    "name": "MD MIRAZ HOSSEN",
+    "scheduled": 484,
+    "nonScheduled": 1,
+    "productive": 457,
+    "bp": 94.22680412371133
+  },
+  {
+    "town": "Jhenaidah",
+    "code": "419032",
+    "name": "Khandoker Salim Hossain",
+    "scheduled": 474,
+    "nonScheduled": 0,
+    "productive": 447,
+    "bp": 94.30379746835443
+  },
+  {
+    "town": "Jhenaidah",
+    "code": "412198",
+    "name": "SHOBER ODIKARI",
+    "scheduled": 444,
+    "nonScheduled": 0,
+    "productive": 419,
+    "bp": 94.36936936936937
   },
   {
     "town": "Jhenaidah",
     "code": "423917",
     "name": "Tariful Islam",
-    "scheduled": 648,
-    "nonScheduled": 2,
-    "productive": 625,
-    "bp": 96.15384615384616
+    "scheduled": 484,
+    "nonScheduled": 0,
+    "productive": 458,
+    "bp": 94.62809917355372
   },
   {
     "town": "Jhenaidah",
-    "code": "322211",
-    "name": "MD.Roni Hossain",
-    "scheduled": 608,
+    "code": "435101",
+    "name": "MD HASIBUL ISLAM",
+    "scheduled": 438,
+    "nonScheduled": 0,
+    "productive": 415,
+    "bp": 94.74885844748859
+  },
+  {
+    "town": "Jhenaidah",
+    "code": "429737",
+    "name": "SHAHRIAR HOSEN",
+    "scheduled": 381,
+    "nonScheduled": 0,
+    "productive": 361,
+    "bp": 94.750656167979
+  },
+  {
+    "town": "Jhenaidah",
+    "code": "434567",
+    "name": "SREE KAZOL",
+    "scheduled": 469,
+    "nonScheduled": 0,
+    "productive": 450,
+    "bp": 95.94882729211088
+  },
+  {
+    "town": "Jhenaidah",
+    "code": "412200",
+    "name": "MD. JOMIR UDDIN JAMIN",
+    "scheduled": 474,
     "nonScheduled": 1,
-    "productive": 588,
-    "bp": 96.55172413793103
+    "productive": 457,
+    "bp": 96.21052631578947
   },
   {
     "town": "Jhenaidah",
     "code": "436232",
     "name": "SOMAN MOJUMDER",
-    "scheduled": 581,
+    "scheduled": 428,
+    "nonScheduled": 1,
+    "productive": 415,
+    "bp": 96.73659673659674
+  },
+  {
+    "town": "Jhenaidah",
+    "code": "435102",
+    "name": "MD.KHOKAN MIA",
+    "scheduled": 478,
     "nonScheduled": 0,
-    "productive": 565,
-    "bp": 97.24612736660929
+    "productive": 464,
+    "bp": 97.07112970711297
+  },
+  {
+    "town": "Jhenaidah",
+    "code": "412193",
+    "name": "Mithun Kumar",
+    "scheduled": 480,
+    "nonScheduled": 1,
+    "productive": 468,
+    "bp": 97.2972972972973
   },
   {
     "town": "Jhenaidah",
     "code": "422889",
     "name": "MD.MOKADDES ALI",
-    "scheduled": 632,
+    "scheduled": 474,
     "nonScheduled": 0,
-    "productive": 622,
-    "bp": 98.41772151898735
+    "productive": 472,
+    "bp": 99.57805907172997
+  },
+  {
+    "town": "Magura",
+    "code": "410826",
+    "name": "Md. Saiful Islam",
+    "scheduled": 466,
+    "nonScheduled": 6,
+    "productive": 352,
+    "bp": 74.57627118644068
   },
   {
     "town": "Magura",
     "code": "410809",
     "name": "SANJIB KUMAR BISWAS",
-    "scheduled": 650,
-    "nonScheduled": 0,
-    "productive": 525,
-    "bp": 80.76923076923077
-  },
-  {
-    "town": "Magura",
-    "code": "410824",
-    "name": "DIPAK KUMAR BISWAS",
-    "scheduled": 592,
-    "nonScheduled": 2,
-    "productive": 492,
-    "bp": 82.82828282828282
-  },
-  {
-    "town": "Magura",
-    "code": "421626",
-    "name": "SUJON HOSSAIN",
-    "scheduled": 564,
-    "nonScheduled": 3,
-    "productive": 482,
-    "bp": 85.00881834215167
-  },
-  {
-    "town": "Magura",
-    "code": "410813",
-    "name": "ASHOK KUMAR BISWAS",
-    "scheduled": 660,
+    "scheduled": 460,
     "nonScheduled": 1,
-    "productive": 562,
-    "bp": 85.02269288956127
-  },
-  {
-    "town": "Magura",
-    "code": "434081",
-    "name": "Bikash Chandra Biswas",
-    "scheduled": 610,
-    "nonScheduled": 0,
-    "productive": 522,
-    "bp": 85.57377049180329
-  },
-  {
-    "town": "Magura",
-    "code": "434870",
-    "name": "MD.Amanot Ali",
-    "scheduled": 587,
-    "nonScheduled": 4,
-    "productive": 506,
-    "bp": 85.6175972927242
-  },
-  {
-    "town": "Magura",
-    "code": "410816",
-    "name": "SAMORANDRA NATH MOJUMDER",
-    "scheduled": 657,
-    "nonScheduled": 1,
-    "productive": 567,
-    "bp": 86.17021276595744
-  },
-  {
-    "town": "Magura",
-    "code": "427631",
-    "name": "MD. SELIM SHEAK",
-    "scheduled": 662,
-    "nonScheduled": 1,
-    "productive": 572,
-    "bp": 86.27450980392157
-  },
-  {
-    "town": "Magura",
-    "code": "410806",
-    "name": "NAPAL CHADRA BISWAS",
-    "scheduled": 583,
-    "nonScheduled": 1,
-    "productive": 504,
-    "bp": 86.3013698630137
-  },
-  {
-    "town": "Magura",
-    "code": "410826",
-    "name": "MD. Saiful Islam",
-    "scheduled": 659,
-    "nonScheduled": 0,
-    "productive": 569,
-    "bp": 86.34294385432474
-  },
-  {
-    "town": "Magura",
-    "code": "410827",
-    "name": "Md. Rafikul Islam",
-    "scheduled": 603,
-    "nonScheduled": 3,
-    "productive": 527,
-    "bp": 86.96369636963696
-  },
-  {
-    "town": "Magura",
-    "code": "418001",
-    "name": "MD.ROWSHON ALI",
-    "scheduled": 652,
-    "nonScheduled": 7,
-    "productive": 584,
-    "bp": 88.61911987860395
-  },
-  {
-    "town": "Magura",
-    "code": "424626",
-    "name": "MD. ATIK HASAN",
-    "scheduled": 614,
-    "nonScheduled": 0,
-    "productive": 546,
-    "bp": 88.92508143322475
+    "productive": 350,
+    "bp": 75.92190889370933
   },
   {
     "town": "Magura",
     "code": "427707",
     "name": "MD. AZAD HOSSAIN-1",
-    "scheduled": 547,
-    "nonScheduled": 1,
-    "productive": 490,
-    "bp": 89.41605839416059
-  },
-  {
-    "town": "Magura",
-    "code": "409241",
-    "name": "Khandoker Khayruzzaman (Chanchal)",
-    "scheduled": 632,
-    "nonScheduled": 3,
-    "productive": 572,
-    "bp": 90.07874015748033
-  },
-  {
-    "town": "Magura",
-    "code": "410811",
-    "name": "MD. LAVEUJJAMAN",
-    "scheduled": 596,
+    "scheduled": 388,
     "nonScheduled": 2,
-    "productive": 539,
-    "bp": 90.13377926421404
+    "productive": 307,
+    "bp": 78.71794871794872
   },
   {
     "town": "Magura",
-    "code": "410814",
-    "name": "CHANCHAL KUMAR ADHIKARY",
-    "scheduled": 663,
-    "nonScheduled": 0,
-    "productive": 599,
-    "bp": 90.34690799396682
+    "code": "418001",
+    "name": "MD.ROWSHON ALI",
+    "scheduled": 460,
+    "nonScheduled": 13,
+    "productive": 373,
+    "bp": 78.8583509513742
   },
   {
     "town": "Magura",
-    "code": "433248",
-    "name": "MD. SANTO MIA",
-    "scheduled": 639,
+    "code": "410824",
+    "name": "DIPAK KUMAR BISWAS",
+    "scheduled": 420,
+    "nonScheduled": 8,
+    "productive": 350,
+    "bp": 81.77570093457945
+  },
+  {
+    "town": "Magura",
+    "code": "410827",
+    "name": "MD. RAFIKUL ISLAM",
+    "scheduled": 420,
+    "nonScheduled": 2,
+    "productive": 349,
+    "bp": 82.70142180094787
+  },
+  {
+    "town": "Magura",
+    "code": "410816",
+    "name": "SAMORANDRA NATH MOJUMDER",
+    "scheduled": 466,
     "nonScheduled": 1,
-    "productive": 579,
-    "bp": 90.46875
+    "productive": 390,
+    "bp": 83.5117773019272
   },
   {
     "town": "Magura",
     "code": "423930",
     "name": "MD. SOHEL RANA",
-    "scheduled": 622,
-    "nonScheduled": 1,
-    "productive": 564,
-    "bp": 90.52969502407706
+    "scheduled": 440,
+    "nonScheduled": 3,
+    "productive": 373,
+    "bp": 84.19864559819413
+  },
+  {
+    "town": "Magura",
+    "code": "410813",
+    "name": "ASHOK KUMAR BISWAS",
+    "scheduled": 466,
+    "nonScheduled": 0,
+    "productive": 396,
+    "bp": 84.97854077253218
   },
   {
     "town": "Magura",
     "code": "417999",
     "name": "CHITTO RANJAN BISWAS",
-    "scheduled": 635,
+    "scheduled": 450,
     "nonScheduled": 0,
-    "productive": 581,
-    "bp": 91.49606299212599
+    "productive": 386,
+    "bp": 85.77777777777777
   },
   {
     "town": "Magura",
-    "code": "410815",
-    "name": "MD. SHAFIQUL ISLAM",
-    "scheduled": 653,
-    "nonScheduled": 1,
-    "productive": 599,
-    "bp": 91.59021406727828
+    "code": "409241",
+    "name": "Khandoker Khayruzzaman (Chanchal)",
+    "scheduled": 442,
+    "nonScheduled": 0,
+    "productive": 381,
+    "bp": 86.19909502262443
   },
   {
     "town": "Magura",
-    "code": "410825",
-    "name": "SONKOR KUNDU",
-    "scheduled": 642,
+    "code": "434081",
+    "name": "Bikash Chandra Biswas",
+    "scheduled": 432,
+    "nonScheduled": 3,
+    "productive": 376,
+    "bp": 86.4367816091954
+  },
+  {
+    "town": "Magura",
+    "code": "424626",
+    "name": "MD. ATIK HASAN",
+    "scheduled": 432,
+    "nonScheduled": 6,
+    "productive": 382,
+    "bp": 87.21461187214612
+  },
+  {
+    "town": "Magura",
+    "code": "410806",
+    "name": "NAPAL CHADRA BISWAS",
+    "scheduled": 412,
+    "nonScheduled": 2,
+    "productive": 363,
+    "bp": 87.68115942028986
+  },
+  {
+    "town": "Magura",
+    "code": "434870",
+    "name": "MD.Amanot Ali",
+    "scheduled": 408,
+    "nonScheduled": 6,
+    "productive": 363,
+    "bp": 87.68115942028986
+  },
+  {
+    "town": "Magura",
+    "code": "433248",
+    "name": "MD. SANTO MIA",
+    "scheduled": 450,
+    "nonScheduled": 0,
+    "productive": 396,
+    "bp": 88
+  },
+  {
+    "town": "Magura",
+    "code": "427631",
+    "name": "MD. SELIM SHEAK",
+    "scheduled": 468,
+    "nonScheduled": 0,
+    "productive": 414,
+    "bp": 88.46153846153845
+  },
+  {
+    "town": "Magura",
+    "code": "421626",
+    "name": "SUJON HOSSAIN",
+    "scheduled": 402,
     "nonScheduled": 1,
-    "productive": 597,
-    "bp": 92.84603421461898
+    "productive": 376,
+    "bp": 93.30024813895783
+  },
+  {
+    "town": "Magura",
+    "code": "410814",
+    "name": "CHANCHAL KUMAR ADHIKARY",
+    "scheduled": 468,
+    "nonScheduled": 0,
+    "productive": 437,
+    "bp": 93.37606837606837
   },
   {
     "town": "Magura",
     "code": "429517",
     "name": "MD. ALI HASAN",
-    "scheduled": 663,
-    "nonScheduled": 1,
-    "productive": 617,
-    "bp": 92.92168674698796
+    "scheduled": 468,
+    "nonScheduled": 0,
+    "productive": 440,
+    "bp": 94.01709401709401
+  },
+  {
+    "town": "Magura",
+    "code": "410825",
+    "name": "SONKOR KUNDU",
+    "scheduled": 450,
+    "nonScheduled": 0,
+    "productive": 425,
+    "bp": 94.44444444444444
   },
   {
     "town": "Magura",
     "code": "418002",
-    "name": "RATON KUMAR DAS",
-    "scheduled": 592,
-    "nonScheduled": 12,
-    "productive": 568,
-    "bp": 94.03973509933775
+    "name": "Ratan Kumar Das",
+    "scheduled": 420,
+    "nonScheduled": 16,
+    "productive": 412,
+    "bp": 94.4954128440367
   },
   {
     "town": "Magura",
-    "code": "410808",
-    "name": "SUBRATO KUMAR SAHA",
-    "scheduled": 538,
-    "nonScheduled": 0,
-    "productive": 523,
-    "bp": 97.21189591078067
+    "code": "410811",
+    "name": "MD. LAVEUJJAMAN",
+    "scheduled": 422,
+    "nonScheduled": 2,
+    "productive": 401,
+    "bp": 94.5754716981132
+  },
+  {
+    "town": "Magura",
+    "code": "410815",
+    "name": "MD. SHAFIQUL ISLAM",
+    "scheduled": 460,
+    "nonScheduled": 1,
+    "productive": 445,
+    "bp": 96.52928416485899
   },
   {
     "town": "Magura",
     "code": "410828",
     "name": "B.M. AMIRUL ISLAM",
-    "scheduled": 495,
-    "nonScheduled": 19,
-    "productive": 502,
-    "bp": 97.66536964980544
+    "scheduled": 348,
+    "nonScheduled": 4,
+    "productive": 344,
+    "bp": 97.72727272727273
+  },
+  {
+    "town": "Magura",
+    "code": "410808",
+    "name": "SUBRATO KUMAR SAHA",
+    "scheduled": 378,
+    "nonScheduled": 0,
+    "productive": 376,
+    "bp": 99.47089947089947
   }
 ]
